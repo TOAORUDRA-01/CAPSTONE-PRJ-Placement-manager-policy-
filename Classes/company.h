@@ -11,19 +11,17 @@ class company {
     string cmpaddress;
     double package;
     int hiredstudents;
-    vector<float> criteria; // CGPA and company exam
+    string criteria; // CGPA or none
     int no_of_alumni;
-    bool at_college; //present at college 
+    bool at_college; //present at college or not
 
 //constructor
-company(const string &cmpname, const string &cmpaddress, double package, int hiredstudents, vector<float> criteria, int no_of_alumni, bool at_college){
+company(const string &cmpname, const string &cmpaddress, double package, int hiredstudents, string criteria, int no_of_alumni, bool at_college){
     this->cmpname = cmpname;
     this->cmpaddress = cmpaddress;
     this->package = package;
     this->hiredstudents = hiredstudents;
-    for(int i = 0;i<criteria.size();i++){
-        this->criteria[i] = criteria[i];
-    }
+    this->criteria = criteria;
     this->no_of_alumni = no_of_alumni;
     this->at_college = at_college;
 }
@@ -47,7 +45,7 @@ company(const string &cmpname, const string &cmpaddress, double package, int hir
     bool getat_college() const{
         return at_college;
     }
-    vector <float> getcriteria() const{
+    string getcriteria() const{
         return criteria;
     }
 
@@ -70,7 +68,7 @@ company(const string &cmpname, const string &cmpaddress, double package, int hir
     void setat_college(const int &at_college){
         this->at_college = at_college;
     }
-    void setcriteria(const vector<float> &criteria){
+    void setcriteria(const string &criteria){
         this->criteria = criteria;
     }
 };
