@@ -19,11 +19,11 @@ public:
   string phone;
   vector<string> Internships;
   vector<string> Projects;
-    string status;
+    
 
 
   // Constructor to initialize student object
-  Student(const int id,const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone,string s){
+  Student(const int id,const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone){
     this->id = id;
     this->name = name;
     yearOfPlacement = year;
@@ -31,7 +31,7 @@ public:
     this->cgpa = cgpa;
     this->email = email;
     this->phone = phone;
-    status = s;
+   
   }
    // Getters
     string getName() const{
