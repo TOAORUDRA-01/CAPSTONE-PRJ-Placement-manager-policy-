@@ -6,11 +6,11 @@ using namespace std;
 
 #include <string>
 #include <unordered_map>
-#include <vector>///////////////////////////////////////////////////////////////////////////// add status
-
+#include <vector>
 class Student {
 public:
   // Member variables
+  int id;
   string name;
   int yearOfPlacement;
   string program;
@@ -19,24 +19,19 @@ public:
   string phone;
   vector<string> Internships;
   vector<string> Projects;
+    string status;
 
-std::unordered_map<int, std::string> course = {
- {01, "Btech ICT"},
- {02, "Btech ICT+CS"},
- {03, "Btech Mnc"},
- {04, "Btech EVD"},
- {12, "Masters"},
- {2, "on campus"},
- {3, "off campus"} };
 
   // Constructor to initialize student object
-  Student(const string& name, int year, const string& program, double cgpa, const string& email, const string& phone){
+  Student(const int id,const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone,string s){
+    this->id = id;
     this->name = name;
     yearOfPlacement = year;
     this->program = program;
     this->cgpa = cgpa;
     this->email = email;
     this->phone = phone;
+    status = s;
   }
    // Getters
     string getName() const{
