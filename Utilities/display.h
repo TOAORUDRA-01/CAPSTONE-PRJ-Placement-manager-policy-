@@ -12,6 +12,8 @@ void display()
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
     cout<<"Enter 2 to display the past placement program details"<<endl;
     cout<<BOLD<<"ENTER YOUR CHOICE:"<<RESET<<endl;
+    int c; cin >> c;
+    display_choice(c);
 }
 void display_choice1(int choice1)
 {
@@ -34,7 +36,9 @@ void display_choice(int choice)
         cout<<"YOU OPTED TO DISPLAY ONGOING PROCESS OF PLACEMENT."<<endl;
         cout<<"ENTER 1 - IF YOU WANT TO VIEW DETAILS OF ALL STUDENTS"<<endl;
         cout<<"ENTER 2 - IF YOU WANT TO VIEW DETAIL OF A PARTICULAR STUDENT"<<endl;
-        void display_choice1(int choice1);
+        int choice1;
+        cin >> choice1;
+        display_choice1(choice1);
         break;
 
     
