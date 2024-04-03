@@ -10,11 +10,13 @@ class Internship{
         string name;
         int duration;
         string type;
+        int sr_no;
         
         public:
         vector<Internship> internships;
-        Internship(string name, int duration, string type) {
+        Internship(int sr_no,string name, int duration, string type) {
         this->name = name;
+        this->sr_no = sr_no;
         this->duration = duration;
         this->type = type;
     }
@@ -25,12 +27,14 @@ class Internship{
 
         bool flag = true;
         string name, type; 
-        int seats,duration ;
+        int sr_no,duration ;
         char c;
         cout << "  Enter the internship details which you want to add:" << endl;
 
         while (flag)
         {
+            cout << "  Enter the sr no: ";
+            cin >> sr_no;
             cout << "  Enter the internship name: ";
             cin >> name;
             cout << "  Enter the internship type: ";
@@ -39,7 +43,7 @@ class Internship{
             cin >> duration;
             cout << "  Do you want to add more internships? (y/n): ";
             cin >> c;
-            Internship *inter = new Internship(name,duration,type);
+            Internship *inter = new Internship(sr_no,name,duration,type);
             internships.push_back(*inter);
             if (c == 'n')
             {
