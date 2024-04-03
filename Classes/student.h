@@ -97,6 +97,8 @@ out << "  Name: " << student.name << endl;
     out << "  Year of Placement: " << student.yearOfPlacement << endl;
     out << "  Program: " << student.program << endl;
     out << "  CGPA: " << student.cgpa << endl;
+    out << "  Email Id : " << student.email << endl;
+    out << "  Phone Number : " << student.phone << endl;
     return out;
 }
 #endif
