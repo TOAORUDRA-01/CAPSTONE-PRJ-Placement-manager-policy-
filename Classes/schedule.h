@@ -3,17 +3,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Schedule{
-    unordered_map<int, string> status = {{0,"complete"}, {1,"incomplete"}};
+    long id; string name;//unordered_map<int, string> status = {{0,"Complete"}, {1,"Fail"}}; //for interview
     string s_time, e_time; //the timings for interview of individuals
 
     public:
-    Schedule(){};
+    Schedule(long id,string name,string s_time, string e_time){
+        this->id = id;
+        this->name = name;
+        this->s_time=s_time;
+        this->e_time=e_time;
+    };
 
 
     //All getters
-    string getStatus(bool b) { 
-        return status[b];
-    }
+    // string getStatus(bool b) { 
+    //     return status[b];
+    // }
 
     string get_stime()const{
         return s_time;
