@@ -7,6 +7,7 @@ using namespace std;
 #include"company.h"
 #include"placement.h"
 #include"schedule.h"
+#include"student.h"
 void display()
 {
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
@@ -20,6 +21,7 @@ void display_choice1(int choice1)
     if(choice1 == 1)
     {
         cout<<"THIS IS THE TABLE CONTAINING PLACEMENT DATA OF ALL STUDENTS:"<<endl;
+        void display_allstudents();
     }
     else if(choice1 == 2)
     {
@@ -53,3 +55,78 @@ void display_choice(int choice)
 }
 #endif
 
+
+
+
+
+void display_allstudents(vector<Student> &Students)
+{
+    cout << "\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
+    cout.width(3);
+    cout << "\t\t\t\t| Serial No."<< "|";
+    cout.width(12);
+    cout << "Name"<< "   \t|";
+    cout.width(10);
+    cout << "ID"<< "\t|";
+    cout.width(8);
+    cout << "Branch"<<"\t|";
+    cout.width(5);
+    cout << "CGPA"<<"\t|";
+    cout << endl; 
+    cout.width(6);
+    cout << "Year"<<"\t|" ;
+    cout << endl;
+    cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+    int index = 1;
+        for (auto student : Students)
+        {   cout<<"\t\t\t\t";
+            cout.width(3);
+            cout << "|   "<<index++ << " \t    |";
+            cout.width(15);
+            cout << student.name << "\t|";
+            cout.width(10);
+            cout << student.id << "\t|";
+            cout << endl;
+            cout.width(8);
+            cout << student.program << "\t| ";
+            cout << endl;
+            cout.width(20);
+            if (student.cgpa < 3.0)
+            {
+                cout << "Not elligible for placement \t|" << endl;
+            }
+            else
+            {
+                cout << student.cgpa<< " ";
+                cout << "[Eligible for placement] \t|"<<endl;
+            }
+            cout.width(6);
+            cout << student.yearOfPlacement << " \t| ";
+            cout << endl;
+            
+        }
+    cout << "\n"
+         << endl;
+    cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+    cout<<"\n\n";
+}
+
+void display_particularstudent()
+{
+    int ID_NO;
+    cout << "Enter the Student's ID:" << endl;
+    cin  >> ID_NO;
+    vector<Student> students;
+    bool fetchStudent(int id, const std::vector<Student>& studentsList) {
+        for (const auto &student : studentsList) {
+            if (student.ID() == id) {
+                print_single_student(student);
+                return true;
+            }
+        }
+        std::cout << "No such Student is present in our records." << std::endl;
+        return false;
+    }
+    fetchStudent(ID_NO,students);
+    cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+}

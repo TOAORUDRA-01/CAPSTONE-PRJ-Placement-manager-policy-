@@ -23,7 +23,7 @@ company(const string &cmpname, const string &cmpaddress, double package, int hir
     this->hiredstudents = hiredstudents;
     this->criteria = criteria;
     this->no_of_alumni = no_of_alumni;
-    this->at_college = at_college;
+    this->at_college = at_college; //company visited or not
 }
 
     //Getter
