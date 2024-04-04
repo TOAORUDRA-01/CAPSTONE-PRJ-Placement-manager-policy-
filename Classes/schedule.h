@@ -68,12 +68,10 @@ class Schedule{
     void setlocation(const string& location){
         this->location=location;
     }
-
-    friend class Schedule;
     friend ostream& operator<<(ostream& ,Schedule& schedule);
+};
 
-
-friend ostream& operator<<(ostream& out,Schedule& schedule)
+ostream& operator<<(ostream& out,Schedule& schedule)
 {
     out<<"\t || SCHEDULE ||"<<endl;
     out<<"Student ID:  "<<schedule.id<<endl;
@@ -85,5 +83,5 @@ friend ostream& operator<<(ostream& out,Schedule& schedule)
     out<<"Room No. :  "<<schedule.location<<endl;
     return out;
 }
-};
+
 #endif

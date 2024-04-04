@@ -72,9 +72,12 @@ public:
     void setPlacedStatus(string placed) {
         this->placed = placed;
     }
+    friend ostream& operator<<(ostream& out, JobOffer& joboffer);
 };
 
-ostream& operator<<(ostream& out, JobOffer& joboffer) {
+
+ostream& operator<<(ostream& out, JobOffer& joboffer)
+{
     out << "\t || JOB OFFERS ||" << endl;
     out << "Student ID: " << joboffer.getid() << endl;
     out << "Student Name: " << joboffer.getname() << endl;
