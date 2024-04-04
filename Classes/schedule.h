@@ -22,6 +22,11 @@ class Schedule{
     // string getStatus(bool b) { 
     //     return status[b];
     // }
+    string getid() const{
+        return id;}
+
+    string getname() const{
+        return name;}
 
     string get_stime()const{
         return s_time;
@@ -32,6 +37,12 @@ class Schedule{
     }
 
     //All setters
+    void setid(const int& id){
+        this->id=id;}
+
+    void setname(const string& name){
+        this->name=name;}
+
     void sets_time(const string s){
         s_time = s;
     }
