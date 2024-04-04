@@ -22,10 +22,10 @@ class Schedule{
     // string getStatus(bool b) { 
     //     return status[b];
     // }
-    string getid() const{
+    long getid() const{
         return id;}
 
-    string getname() const{
+    string getstdname() const{
         return name;}
 
     string get_stime()const{
@@ -36,8 +36,17 @@ class Schedule{
         return e_time;
     }
 
+    string getdate() const{
+        return date;}
+
+    string getcmpname() const{
+        return cmpname;}
+
+    string getlocation() const{
+        return location;}
+
     //All setters
-    void setid(const int& id){
+    void setid(const long& id){
         this->id=id;}
 
     void setname(const string& name){
@@ -49,6 +58,15 @@ class Schedule{
 
      void sete_time(const string e){
         e_time = e;
+    }
+    void setdate(const string& date){
+        this->date=date;
+    }
+    void setcmpname(const string& cmpname){
+        this->cmpname=cmpname;
+    }
+    void setlocation(const string& location){
+        this->location=location;
     }
 
     friend class Schedule;
