@@ -93,6 +93,7 @@ friend ostream &operator  <<(ostream &out, Student &student)
     out << "  Phone Number : " << student.phone << endl;    
     return out;
 }
+};
 #endif
 
     
