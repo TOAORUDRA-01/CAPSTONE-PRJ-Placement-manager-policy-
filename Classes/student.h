@@ -80,23 +80,12 @@ public:
     // Other member functions
    
 
-friend ostream &operator<<(ostream &out, Student &);
-<<<<<<< HEAD
-ostream &operator  <<(ostream &out, Student &student)
+friend ostream &operator  <<(ostream &out, Student &student)
 {
     out << "\t\t\t----------------------------------------------------------------------------"<<endl;
     out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
     out << "  ID: " << student.id << endl;
     out << "  Name: " << student.name << endl;
-=======
-};
-
-ostream &operator  <<(ostream &out, Student &student){
-out << "\t\t\t----------------------------------------------------------------------------"<<endl;
-out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
-out << "  ID: " << student.id << endl;
-out << "  Name: " << student.name << endl;
->>>>>>> 12d2e6e3f4cb2dc34893e149b86ed6a2521bac85
     out << "  Year of Placement: " << student.yearOfPlacement << endl;
     out << "  Program: " << student.program << endl;
     out << "  CGPA: " << student.cgpa << endl;
@@ -105,3 +94,5 @@ out << "  Name: " << student.name << endl;
     return out;
 }
 #endif
+
+    
