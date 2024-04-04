@@ -17,13 +17,12 @@ public:
   double cgpa;
   string email;
   string phone;
-  vector<string> Internships;
-  vector<string> Projects;
-    
+vector<Internship> internships;
+  
 
 
   // Constructor to initialize student object
-  Student(const int id,const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone){
+  Student(const int id,const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone,Intenrnship* inter){
     this->id = id;
     this->name = name;
     yearOfPlacement = year;
@@ -31,6 +30,8 @@ public:
     this->cgpa = cgpa;
     this->email = email;
     this->phone = phone;
+    internships.push_back(*inter);
+    
    
   }
    // Getters
@@ -80,15 +81,50 @@ public:
     }
 
     // Other member functions
-    void addInternship(const vector<string>& internship){
-        this->Internships = internship;
-    }
-    void addProject(const vector<string>& project){
-        this->Projects = project;
+   
+void add_internships()
+    {
+
+        bool flag = true;
+        string name, type,stdname; 
+        int sr_no,duration ;
+        char c;
+        cout << "  Enter the internship details which you want to add:" << endl;
+
+        while (flag)
+        {
+            cout << "  Enter the sr no: ";
+            cin >> sr_no;
+            cout << "  Enter the internship name: ";
+            cin >> name;
+            cout << "  Enter the internship type: ";
+            cin >> type;
+            cout << "  Enter the duration of internship: ";
+            cin >> duration;
+            cout << "  Do you want to add more internships? (y/n): ";
+            cin >> c;
+            Internship *inter = new Internship(sr_no,stdname,name,duration,type);
+            internships.push_back(*inter);
+            if (c == 'n')
+            {
+                flag = false;
+            }
+        }
     }
 
-};
+    // Other member functions
+    void show_internship(){
+        cout << "\t\t\t\t\t\tINTERNSHIP DETAILS:" << endl;
+        cout << "\n\t\tName \t\t\t\t\t\t Duration(in weeks) \t\t\t\t\t\t Type" << endl;
+        cout << "---------------------------------------------------------------------------------------------------" << endl;
+int index = 0;
+        for(int i = 0; i<internships.size();i++){
+            cout << index++ << "||" << "\t\t" << internships[i].name << "\t\t\t\t\t\t" << internships[i].duration << "\t\t\t\t\t\t" << internships[i].type  << endl;  
+        }
+    }
 friend ostream &operator<<(ostream &out, Student &);
+};
+
 ostream &operator  <<(ostream &out, Student &student){
 out << "\t\t\t----------------------------------------------------------------------------"<<endl;
 out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
