@@ -3,15 +3,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Schedule{
-    long id; string name;//unordered_map<int, string> status = {{0,"Complete"}, {1,"Fail"}}; //for interview
-    string s_time, e_time; //the timings for interview of individuals
+    long id; string stdname,cmpname;//unordered_map<int, string> status = {{0,"Complete"}, {1,"Fail"}}; //for interview
+    string s_time, e_time,date,location; //the timings for interview of individuals
 
     public:
-    Schedule(long id,string name,string s_time, string e_time){
+    Schedule(long id,string name,string cmpname,string date,string s_time, string e_time,string location){
         this->id = id;
-        this->name = name;
+        this->stdname = name;
         this->s_time=s_time;
         this->e_time=e_time;
+        this->date=date;
+        this->cmpname=cmpname;
+        this->location=location;
     };
 
 
