@@ -51,8 +51,19 @@ class Schedule{
         e_time = e;
     }
 
-    friend void display_schedule();
+    friend class Schedule;
+    friend ostream& operator<<(ostream& ,Schedule& schedule);
 
 };
-
+ostream& operator<<(ostream& out,Schedule& schedule){
+    out<<"\t || SCHEDULE ||"<<endl;
+    out<<"Student ID:  "<<schedule.id<<endl;
+    out<<"Student Name:  "<<schedule.name<<endl;
+    out<<"Start Time:  "<<schedule.s_time<<endl;
+    out<<"End Time:  "<<schedule.e_time<<endl;
+    out<<"Date of Interview:  "<<schedule.date<<endl;
+    out<<"Company Name:  "<<schedule.cmpname<<endl;
+    out<<"Room No. :  "<<schedule.location<<endl;
+    return out;
+}
 #endif
