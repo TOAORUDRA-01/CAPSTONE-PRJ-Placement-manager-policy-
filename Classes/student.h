@@ -89,16 +89,17 @@ public:
 
 };
 friend ostream &operator<<(ostream &out, Student &);
-ostream &operator  <<(ostream &out, Student &student){
-out << "\t\t\t----------------------------------------------------------------------------"<<endl;
-out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
-out << "  ID: " << student.id << endl;
-out << "  Name: " << student.name << endl;
+ostream &operator  <<(ostream &out, Student &student)
+{
+    out << "\t\t\t----------------------------------------------------------------------------"<<endl;
+    out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
+    out << "  ID: " << student.id << endl;
+    out << "  Name: " << student.name << endl;
     out << "  Year of Placement: " << student.yearOfPlacement << endl;
     out << "  Program: " << student.program << endl;
     out << "  CGPA: " << student.cgpa << endl;
     out << "  Email Id : " << student.email << endl;
-    out << "  Phone Number : " << student.phone << endl;
+    out << "  Phone Number : " << student.phone << endl;    
     return out;
 }
 #endif
