@@ -78,9 +78,9 @@ public:
     }
 
     // Other member functions
-   
-
-friend ostream &operator  <<(ostream &out, Student &student)
+    friend ostream &operator  <<(ostream &out, Student &student);
+};
+ostream &operator  <<(ostream &out, Student &student)
 {
     out << "\t\t\t----------------------------------------------------------------------------"<<endl;
     out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
@@ -93,7 +93,7 @@ friend ostream &operator  <<(ostream &out, Student &student)
     out << "  Phone Number : " << student.phone << endl;    
     return out;
 }
-};
+
 #endif
 
     
