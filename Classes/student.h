@@ -78,7 +78,7 @@ public:
     }
 
     // Other member functions
-    friend ostream &operator  <<(ostream &out, Student &student)
+    friend ostream &operator  <<(ostream &out, Student &student);
 };
 ostream &operator  <<(ostream &out, Student &student)
 {

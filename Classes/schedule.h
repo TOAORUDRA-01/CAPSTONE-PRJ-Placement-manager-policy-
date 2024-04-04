@@ -70,7 +70,6 @@ class Schedule{
     }
     friend ostream& operator<<(ostream& ,Schedule& schedule);
 };
-
 ostream& operator<<(ostream& out,Schedule& schedule)
 {
     out<<"\t || SCHEDULE ||"<<endl;
