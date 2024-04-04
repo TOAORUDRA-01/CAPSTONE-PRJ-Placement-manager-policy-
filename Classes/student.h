@@ -1,4 +1,5 @@
 #include <iostream>
+#include"..\Classes\internship.h"
 using namespace std;
 
 #ifndef STUDENT_H
@@ -17,9 +18,8 @@ public:
   double cgpa;
   string email;
   string phone;
-  vector<string> Internships;
-  vector<string> Projects;
-    
+
+  
 
 
   // Constructor to initialize student object
@@ -31,8 +31,11 @@ public:
     this->cgpa = cgpa;
     this->email = email;
     this->phone = phone;
+    
+    
    
   }
+  
    // Getters
     string getName() const{
         return name;
@@ -52,12 +55,7 @@ public:
     string getPhoneNumber() const{
         return phone;
     }
-    vector<string> getInternships() const{
-        return Internships;
-    }
-    vector<string> getProjects() const{
-        return Projects;
-    }
+    
 
     // Setters
     void setName(const string& name){
@@ -80,21 +78,25 @@ public:
     }
 
     // Other member functions
-    void addInternship(const vector<string>& internship){
-        this->Internships = internship;
-    }
-    void addProject(const vector<string>& project){
-        this->Projects = project;
-    }
+   
 
-};
 friend ostream &operator<<(ostream &out, Student &);
+<<<<<<< HEAD
 ostream &operator  <<(ostream &out, Student &student)
 {
     out << "\t\t\t----------------------------------------------------------------------------"<<endl;
     out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
     out << "  ID: " << student.id << endl;
     out << "  Name: " << student.name << endl;
+=======
+};
+
+ostream &operator  <<(ostream &out, Student &student){
+out << "\t\t\t----------------------------------------------------------------------------"<<endl;
+out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
+out << "  ID: " << student.id << endl;
+out << "  Name: " << student.name << endl;
+>>>>>>> 12d2e6e3f4cb2dc34893e149b86ed6a2521bac85
     out << "  Year of Placement: " << student.yearOfPlacement << endl;
     out << "  Program: " << student.program << endl;
     out << "  CGPA: " << student.cgpa << endl;
