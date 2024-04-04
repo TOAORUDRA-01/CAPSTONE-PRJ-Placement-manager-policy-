@@ -111,22 +111,13 @@ void display_allstudents(vector<Student> &Students)
     cout<<"\n\n";
 }
 
-void display_particularstudent()
+void display_particularstudent(map<long,Student*>  &Students)
 {
     int ID_NO;
     cout << "Enter the Student's ID:" << endl;
     cin  >> ID_NO;
-    vector<Student> students;
-    bool fetchStudent(int id, const std::vector<Student>& studentsList) {
-        for (const auto &student : studentsList) {
-            if (student.ID() == id) {
-                print_single_student(student);
-                return true;
-            }
-        }
-        std::cout << "No such Student is present in our records." << std::endl;
-        return false;
-    }
-    fetchStudent(ID_NO,students);
+    Student* s = Students[ID_NO];
+    cout << s;
+    
     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
 }
