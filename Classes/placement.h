@@ -24,7 +24,42 @@ placement(vector<string> package, string &avgpackage, string &highestpackage, fl
     this->placed = placed;
 }
     //getter
-    
+vector<string> getPackage_offered() const{
+        return package_offered;}
+
+string getAvgpackage() const{
+    return avgpackage;}
+
+string getHighestpackage() const{
+    return highestpackage;}
+
+float getRate_of_Placement() const{
+    return rate_of_placement;}
+
+int getAppeared() const{
+    return appeared;}
+
+int getPlaced() const{
+    return placed;}
+
+//setters
+void setPackage_offered(const vector<string>& package) {
+    package_offered = package;}
+
+void setAvgpackage(const string& avgpackage) {
+     this->avgpackage = avgpackage;}
+
+void setHighestpackage(const string& highestpackage) {
+     this->highestpackage = highestpackage;}
+
+void setRate_of_placement(float rate_of_placement) {
+    this->rate_of_placement = rate_of_placement;}
+
+void setAppeared(int appeared) {
+    this->appeared = appeared;}
+
+void setPlaced(int placed) {
+    this->placed = placed;}    
 };
 
 #endif
