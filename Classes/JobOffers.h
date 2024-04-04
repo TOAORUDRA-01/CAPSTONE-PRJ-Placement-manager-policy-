@@ -4,17 +4,17 @@
 #include <string>
 using namespace std;
 
-struct JobOffer {
+class JobOffer {
 private:
     int id;
     string name;
     string companyName;
     string writtenTestStatus;
     string interviewStatus;
-    bool placed;
+    string placed;
     
 public:
-    JobOffer(const int id, const string& name, const string& companyName, const string& writtenTestStatus, const string& interviewStatus, bool isplaced){
+    JobOffer(const int id, const string& name, const string& companyName, const string& writtenTestStatus, const string& interviewStatus, string isplaced){
         this->id = id;
         this->name = name;
         this->companyName = companyName;
@@ -44,7 +44,7 @@ public:
         return interviewStatus;
     }
     
-    bool getPlacedStatus() const {
+    string getPlacedStatus() const {
         return placed;
     }
     
@@ -69,7 +69,7 @@ public:
         this->interviewStatus = interviewStatus;
     }
 
-    void setPlacedStatus(bool placed) {
+    void setPlacedStatus(string placed) {
         this->placed = placed;
     }
 };
