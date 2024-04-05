@@ -65,19 +65,19 @@ int index = 0;
         }
     }
     friend class Student;
-    friend ostream& operator<<(ostream& ,Internship& internship);
+    friend ostream& operator<<(ostream& out,Internship& internship);
     
     
     
 }; 
-ostream& operator<<(ostream& out,vector<Internship>& internship){
-   out<<"\t || INTERNSHIP DETAILS ||"<<endl;
-   for(int i; i<internship.size();)
-   { 
-    out<<"Name of Internship: "<<internship[i++]<<endl;
-    out<<"Duration: "<<internship[i++]<<endl;
-    out<<"Type: "<<internship[i++]<<endl;
-    return out;}
-}
+// ostream& operator<<(ostream& out,vector<Internship>& internship){
+//    out<<"\t || INTERNSHIP DETAILS ||"<<endl;
+//    for(int i; i<internship.size();)
+//    { 
+//     out<<"Name of Internship: "<<internship[i++]<<endl;
+//     out<<"Duration: "<<internship[i++]<<endl;
+//     out<<"Type: "<<internship[i++]<<endl;
+//     return out;}
+// }
 
 #endif

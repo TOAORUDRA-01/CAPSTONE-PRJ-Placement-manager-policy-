@@ -68,7 +68,7 @@ class Schedule{
     void setlocation(const string& location){
         this->location=location;
     }
-    friend ostream& operator<<(ostream& ,Schedule& schedule);
+    friend ostream& operator<<(ostream& out ,Schedule& schedule);
 };
 ostream& operator<<(ostream& out,Schedule& schedule)
 {
