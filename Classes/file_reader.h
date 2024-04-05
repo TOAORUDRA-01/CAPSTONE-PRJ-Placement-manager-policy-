@@ -41,7 +41,7 @@ void tokenize_company(string s, vector<company>& data){
         c_row_info.push_back(temp);
     }
 
-    company* c = new company(c_row_info[0],c_row_info[1],stod(c_row_info[2]),stoi(c_row_info[3]),c_row_info[4],stoi(c_row_info[5]),stoi(c_row_info[6]));
+    company* c = new company(c_row_info[0],c_row_info[1],c_row_info[2],c_row_info[3],c_row_info[4],stoi(c_row_info[5]),stoi(c_row_info[6]));
     data.push_back(*c);
 }
 
