@@ -4,8 +4,8 @@
 using namespace std;
 #ifndef DISPLAY_H
 #define DISPLAY_H
-#include"company.h"
-#include"placement.h"
+#include"../Classes/company.h"
+#include"../Classes/company.h"
 #include"schedule.h"
 #include"student.h"
 #include <bits/stdc++.h>
@@ -27,6 +27,25 @@ void display_choice1(int choice1)
     else if(choice1 == 2)
     {
         cout<<"THIS IS THE DATA OF THE PARTICULAR STUDENT:"<<endl;
+        cout<<"ENTER 1 - MY DETAILS"<<endl;
+        cout<<"ENTER 2 - INTERNSHIP DETAILS"<<endl;
+        cout<<"ENTER 3 - SCHEDULE DETAILS"<<endl;
+        int ch;
+        cout << "Enter your choice: ";
+        cin >> ch;
+        int ID_NUMBER;
+        cin >> ID_NUMBER;
+        if(ch == 1)
+        {
+            cout<< "YOU OPTED TO VIEW DETAILS OF A PARTICULAR STUDENT."<< endl;
+            
+            display_particularstudent(map<long,Student*>  &Students,ID_NUMBER);
+        }
+        else if(ch == 2)
+        {
+            cout<< "YOU OPTED TO VIEW INTERNSHIP DETAILS:"<<endl;
+            display_internships()
+        }
     }
     else if(choice1 == 3)
     {
@@ -42,12 +61,15 @@ void display_choice2(int choice2)
             break;
         
         case 2:
-            cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS LOCATION WISE."<<endl;
+            cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
             break;
         
         case 3:
             cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS BASED ON STATISTICS:"<<endl;
             break;
+        
+        default:
+            cout<<"LOCATION WISE:"<<endl;
     }
 }
 void display_choice(int choice)
@@ -73,6 +95,7 @@ void display_choice(int choice)
         cout << "ENTER 1 = TO DISPLAY PLACEMENT DETAILS BASED ON COMPANY NAME:"<<endl;
         cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
         cout << "ENTER 3 = TO DISPLAY PLACEMENT STATISTICS:"<<endl;
+        cout << "ENTER 4 = TO DISPLAY PLACEMENT DETAILS BATCHWISE:"<<endl;
         display_choice2(choice2);
         break;
     
@@ -143,14 +166,30 @@ void display_allstudents(map<long, Student*> &Student)
     // cout<<"\n\n";
 }
 
-void display_particularstudent(map<long,Student*>  &Students)
+void display_particularstudent(map<long,Student*>  &Students,int ID_NO)
 {
-    int ID_NO;
-    cout << "Enter the Student's ID:" << endl;
-    cin  >> ID_NO;
     Student* s = Students[ID_NO];
     cout << s;
     
     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
 }
 
+void display_internship(map<long,vector<internship>> &internships, long id)
+{
+    vector<internship>::iterator itr;   
+    int flag=0; 
+    cout << "Internship Details of the user are as follows:\n\n";
+    for (itr = internships[id].begin(); itr != internships[id].end(); ++itr)    
+    {            
+        cout << "\nCompany Name : " << itr->companyName ;                                    
+        cout << "\nDuration : From " << itr->startDate << " to " << itr->endDate;    
+        cout << "\nType :" << itr->type <<endl;                 
+        flag=1;                        
+    }
+    if(!flag)
+        cout << "No Internship details found.";
+    cout << "\n\n";
+    
+}
+
+#endif
