@@ -22,10 +22,10 @@
 202001024,Vivek Singhania,B.Tech ICT,Sprinklr & Atlassian,Pass,Fail,NO,None
 202001025,Jaya Rao,B.Tech ICT,Microsoft & Atlassian,Pass,Pass,YES,5 LPA
 202001026,Aditya Mishra,B.Tech ICT,Atlassian & Sprinklr,Pass,Pass,YES,8 LPA
-202001027,Neha Malhotra,,B.Tech ICT,Dell & Intel,Pass,Pass,,YES,11 LPA
+202001027,Neha Malhotra,B.Tech ICT,Dell & Intel,Pass,Pass,YES,11 LPA
 202001028,Ankit Jain,B.Tech ICT,Lenovo & Nova,Pass,Pass,YES,3 LPA
 202001029,Radhika Menon,B.Tech ICT,Microsoft & Nexus,Pass,Pass,YES,20 LPA
-202001031,Shruti Sharma,B.Tech ICT,Microsoft & Lenovo,,Pass,Pass,YES,9 LPA
+202001031,Shruti Sharma,B.Tech ICT,Microsoft & Lenovo,Pass,Pass,YES,9 LPA
 202001032,Gaurav Mehra,B.Tech ICT,Google & Microsoft,Pass,Pass,YES,21 LPA
 202001033,Bhavna Patel,B.Tech ICT,Microsoft & Google,,Pass,Pass,YES,56 LPA
 202001034,Arvind Agarwal,B.Tech ICT,Fusion & Dell,Pass,Pass,YES,12 LPA
@@ -84,7 +84,7 @@
 201001103,Ananya Mishra,M.Tech ICT, Google,Pass,Fail,NO,None
 201001104,Arvind Khatri,M.Tech ICT,Google & Microsoft,Pass,Pass,YES,46 LPA
 201001105,Nisha Sharma,M.Tech ICT,Fusion & Sprinklr,Pass,Pass,YES,12 LPA
-201001106,Ashok Gupta,,M.Tech ICT,Dell & Lenovo,,Fail,,None,,NO,None
-201001107,Megha Patel,,M.Tech ICT,Dell , ,Fail,,None,,NO,None
-201001108,Rohan Kumar,,M.Tech ICT,Dell & Nova,,Fail,,None,,NO,None
-201001109,Pooja Singh,,M.Tech ICT,Sprinklr & Atlassian,,Pass ,,Pass,,YES,15 LPA
+201001106,Ashok Gupta,M.Tech ICT,Dell & Lenovo,Fail,None,NO,None
+201001107,Megha Patel,M.Tech ICT,Dell,Fail,None,NO,None
+201001108,Rohan Kumar,M.Tech ICT,Dell & Nova,Fail,None,NO,None
+201001109,Pooja Singh,M.Tech ICT,Sprinklr & Atlassian,Pass,Pass,YES,15 LPA
