@@ -26,7 +26,7 @@ void tokenize_student(string s,map<long,Student*> &ms){
     
 
     //adding value to the data
-    ms[stol(row_info[0])] = new Student(stol(row_info[0]),row_info[1],row_info[2],stod(row_info[3]),stoi(row_info[4]),row_info[5],row_info[6]);
+    ms[stol(row_info[0])] = new Student(row_info[1],row_info[2],stod(row_info[3]),stoi(row_info[4]),row_info[5],row_info[6]);
     
 
 }
@@ -72,7 +72,7 @@ void tokenizing_schedule(string s,map<long,Schedule*>&data){
         row.push_back(temp);
 }
 
-    Schedule* sche = new Schedule(stol(row[0]),row[1],row[2],row[3],row[4],row[5],row[6]);
+    Schedule* sche = new Schedule(row[1],row[2],row[3],row[4],row[5],row[6]);
     data[stol(row[0])]=sche;
 }
 
@@ -85,7 +85,7 @@ void tokenize_jobOffers(string s, map<long,JobOffer*>& mj) {
         j_row.push_back(temp);
 }
 
-    JobOffer* job = new JobOffer(stoi(j_row[0]),j_row[1],j_row[2],j_row[3],j_row[4],j_row[5]);
+    JobOffer* job = new JobOffer(j_row[0],j_row[1],j_row[2],j_row[3],j_row[4],j_row[5],stoi(j_row[6]));
     mj[stol(j_row[0])] = job;
 }
 
@@ -100,7 +100,7 @@ void read_file(map<long,Student*> &students,vector<company> &company,map<long,ve
     }
     fin.close();
 
-    fin.open("./Data/company.csv");
+    fin.open("./Data/Company.csv");
     while(!fin.eof()){
         fin >> line;
         tokenize_company(line,company);
@@ -114,7 +114,7 @@ void read_file(map<long,Student*> &students,vector<company> &company,map<long,ve
     }
     fin.close();
 
-    fin.open("./Data/Joboffer.csv");
+    fin.open("./Data/Job Offer.csv");
     while(!fin.eof()){
         fin >> line;
         tokenize_jobOffers(line,jf);
