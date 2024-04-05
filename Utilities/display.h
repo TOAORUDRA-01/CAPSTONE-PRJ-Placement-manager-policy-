@@ -62,6 +62,7 @@ void display_choice2(int choice2)
         
         case 2:
             cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
+            
             break;
         
         case 3:
