@@ -62,7 +62,7 @@ void display_choice2(int choice2)
         
         case 2:
             cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
-            
+
             break;
         
         case 3:
@@ -75,11 +75,9 @@ void display_choice2(int choice2)
 }
 void display_choice(int choice)
 {
-    
     switch (choice)
     {
     case 1:
-        
         cout<<"YOU OPTED TO DISPLAY ONGOING PROCESS OF PLACEMENT:"<<endl;
         cout<<"ENTER 1 - IF YOU WANT TO VIEW DETAILS OF ALL STUDENTS."<<endl;
         cout<<"ENTER 2 - IF YOU WANT TO VIEW DETAIL OF A PARTICULAR STUDENT."<<endl;
@@ -87,8 +85,6 @@ void display_choice(int choice)
         cin >> choice1;
         display_choice1(choice1);
         break;
-
-    
     case 2:
         cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS:"<<endl;
         int choice2;
