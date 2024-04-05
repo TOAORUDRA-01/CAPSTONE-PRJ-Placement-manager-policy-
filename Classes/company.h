@@ -9,21 +9,21 @@ class company {
     public:
     string cmpname;
     string cmpaddress;
-    double package;
-    int hiredstudents;
+    string package;
+    string hiredstudents;
     string criteria; // CGPA or none
     int no_of_alumni;
     bool at_college; //present at college or not
 
 //constructor
-company(const string &cmpname, const string &cmpaddress, double package, int hiredstudents, string criteria, int no_of_alumni, bool at_college){
+company(const string &cmpname, const string &cmpaddress, string package, string hiredstudents, string criteria, int no_of_alumni, bool at_college){
     this->cmpname = cmpname;
     this->cmpaddress = cmpaddress;
     this->package = package;
     this->hiredstudents = hiredstudents;
     this->criteria = criteria;
     this->no_of_alumni = no_of_alumni;
-    this->at_college = at_college; //company visited or not
+    this->at_college = at_college; 
 }
 
     //Getter
@@ -33,10 +33,10 @@ company(const string &cmpname, const string &cmpaddress, double package, int hir
     string getcmpaddress() const{
         return cmpaddress;
     }
-    double getpackage() const{
+    string getpackage() const{
         return package;
     }
-    int gethiredstudents() const{
+    string gethiredstudents() const{
         return hiredstudents;
     }
     int getno_of_alumni() const{
@@ -56,10 +56,10 @@ company(const string &cmpname, const string &cmpaddress, double package, int hir
     void setcmpadrress(const string &cmpaddress){
         this->cmpaddress = cmpaddress;
     }
-    void setpackage(const double &package){
+    void setpackage(const string &package){
         this->package = package;
     }
-    void sethiredstudents(const int &package){
+    void sethiredstudents(const string &hiredstudents){
         this->hiredstudents = hiredstudents;
     }
     void setno_of_alumni(const int &no_of_alumni){
