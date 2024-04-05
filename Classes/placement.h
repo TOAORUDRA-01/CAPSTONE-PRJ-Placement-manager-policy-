@@ -5,15 +5,15 @@ using namespace std;
 #include <string>
 #include <vector>
 class placement{
-    vector<string> package_offered;
-    string avgpackage;
-    string highestpackage;
+    //vector<string> package_offered;
+    int avgpackage;
+    int highestpackage;
     float rate_of_placement;
     int appeared; //appeared for placement drive
     int placed; //placed at the end of drive
 
 //constructor
-placement(vector<string> package, string &avgpackage, string &highestpackage, float rate_of_placement, int appeared, int placed){
+placement(vector<string> package, int &avgpackage, int &highestpackage, float rate_of_placement, int appeared, int placed){
     for(int i = 0;i<package_offered.size();i++){
         this->package_offered = package_offered;
     }
@@ -27,10 +27,10 @@ placement(vector<string> package, string &avgpackage, string &highestpackage, fl
 vector<string> getPackage_offered() const{
         return package_offered;}
 
-string getAvgpackage() const{
+int getAvgpackage() const{
     return avgpackage;}
 
-string getHighestpackage() const{
+int getHighestpackage() const{
     return highestpackage;}
 
 float getRate_of_Placement() const{
@@ -46,10 +46,10 @@ int getPlaced() const{
 void setPackage_offered(const vector<string>& package) {
     package_offered = package;}
 
-void setAvgpackage(const string& avgpackage) {
+void setAvgpackage(const int& avgpackage) {
      this->avgpackage = avgpackage;}
 
-void setHighestpackage(const string& highestpackage) {
+void setHighestpackage(const int& highestpackage) {
      this->highestpackage = highestpackage;}
 
 void setRate_of_placement(float rate_of_placement) {
@@ -59,7 +59,27 @@ void setAppeared(int appeared) {
     this->appeared = appeared;}
 
 void setPlaced(int placed) {
-    this->placed = placed;}    
+    this->placed = placed;}
+friend int max_package(map<long,JobOffer*>j);
+friend int mean_package(map<long,JobOffer*>j);
 };
+int max_package(map<long, JobOffer*>& j) {
+    int max = 0;
+    for (auto& i : j) {
+        if (i.second->package > max)
+            max = i.second->package;}
+    return max;}
+
+
+int mean_package(map<long,JobOffer*> j){
+    int sum=0;
+    int count = 0;
+    for (auto& i : j) {
+        sum += i.second->package;
+        count++;
+    }
+        return sum / count;
+}
+
 
 #endif
