@@ -15,7 +15,7 @@ class Internship{
         
         public:
        vector<Internship> internships;
-        Internship(int sr_no,string stdname,string name, int duration, string type) {
+        Internship(string stdname,string name, int duration, string type) {
         this->name = name;
         this->sr_no = sr_no;
         this->stdname = stdname;
@@ -35,8 +35,8 @@ class Internship{
 
         while (flag)
         {
-            cout << "  Enter the sr no: ";
-            cin >> sr_no;
+            // cout << "  Enter the sr no: ";
+            // cin >> sr_no;
             cout << "  Enter the internship name: ";
             cin >> name;
             cout << "  Enter the internship type: ";
@@ -45,7 +45,7 @@ class Internship{
             cin >> duration;
             cout << "  Do you want to add more internships? (y/n): ";
             cin >> c;
-            Internship *inter = new Internship(sr_no,stdname,name,duration,type);
+            Internship *inter = new Internship(stdname,name,duration,type);
             internships.push_back(*inter);
             if (c == 'n')
             {
@@ -70,12 +70,14 @@ int index = 0;
     
     
 }; 
-ostream& operator<<(ostream& out,Internship& internship){
-    out<<"\t || INTERNSHIP DETAILS ||"<<endl;
-    out<<"Name of Internship: "<<internship.name<<endl;
-    out<<"Duration: "<<internship.duration<<endl;
-    out<<"Type: "<<internship.type<<endl;
-    return out;
+ostream& operator<<(ostream& out,vector<Internship>& internship){
+   out<<"\t || INTERNSHIP DETAILS ||"<<endl;
+   for(int i; i<internship.size();)
+   { 
+    out<<"Name of Internship: "<<internship[i++]<<endl;
+    out<<"Duration: "<<internship[i++]<<endl;
+    out<<"Type: "<<internship[i++]<<endl;
+    return out;}
 }
 
 #endif

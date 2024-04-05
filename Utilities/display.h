@@ -101,92 +101,97 @@ void display_choice(int choice)
     }
 
 }
-#endif
-
-
-
-
 
 void display_allstudents(map<long, Student*> &Student)
 {
-    for( auto i : &Students )
-    {   
-        cout << '\t' << i.first << '\t' << i.second << '\n';
-    }
-    // cout << "\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
-    // cout.width(3);
-    // cout << "\t\t\t\t| Serial No."<< "|";
-    // cout.width(12);
-    // cout << "Name"<< "   \t|";
-    // cout.width(10);
-    // cout << "ID"<< "\t|";
-    // cout.width(8);
-    // cout << "Branch"<<"\t|";
-    // cout.width(5);
-    // cout << "CGPA"<<"\t|";
-    // cout << endl; 
-    // cout.width(6);
-    // cout << "Year"<<"\t|" ;
-    // cout << endl;
-    // cout<<"\t\t\t\t-------------------------------------------------"<<endl;
-    // int index = 1;
-    //     for (auto student : Students)
-    //     {   cout<<"\t\t\t\t";
-    //         cout.width(3);
-    //         cout << "|   "<<index++ << " \t    |";
-    //         cout.width(15);
-    //         cout << student.name << "\t|";
-    //         cout.width(10);
-    //         cout << student.id << "\t|";
-    //         cout << endl;
-    //         cout.width(8);
-    //         cout << student.program << "\t| ";
-    //         cout << endl;
-    //         cout.width(20);
-    //         if (student.cgpa < 3.0)
-    //         {
-    //             cout << "Not elligible for placement \t|" << endl;
-    //         }
-    //         else
-    //         {
-    //             cout << student.cgpa<< " ";
-    //             cout << "[Eligible for placement] \t|"<<endl;
-    //         }
-    //         cout.width(6);
-    //         cout << student.yearOfPlacement << " \t| ";
-    //         cout << endl;
+    cout << "\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
+     cout.width(3);
+     cout << "\t\t\t\t| Serial No."<< "|";
+     cout.width(12);
+     cout << "Name"<< "   \t|";
+     cout.width(10);
+     cout << "ID"<< "\t|";
+     cout.width(8);
+     cout << "Branch"<<"\t|";
+     cout.width(5);
+     cout << "CGPA"<<"\t|";
+     cout << endl; 
+     cout.width(6);
+     cout << "Year"<<"\t|" ;
+     cout << endl;
+     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+    // /int index = 0;
+    for( auto i : Student )
+    { 
+             cout<<"\t\t\t\t";
+             cout.width(3);
+            // cout << "|   "<<index++ << " \t    |";
+             cout.width(10);
+             cout << i.second->id << "\t|";
+              cout.width(15);
+             cout << i.second->getName() << "\t|";
+             cout << endl;
+             cout.width(8);
+             cout << i.second->getProgram() << "\t| ";
+             cout << endl;
+             cout.width(20);
+             if (i.second->cgpa < 3.0)
+             {
+                 cout << "Not elligible for placement \t|" << endl;
+             }
+             else
+             {
+                 cout << i.second->cgpa<< " ";
+                 cout << "[Eligible for placement] \t|"<<endl;
+             }
+             cout.width(6);
+             cout << i.second->getYearOfPlacement() << " \t| ";
+             cout << endl;
             
-    //     }
-    // cout << "\n"
-    //      << endl;
-    // cout<<"\t\t\t\t-------------------------------------------------"<<endl;
-    // cout<<"\n\n";
+         
+     
+}
+cout << "\n"
+          << endl;
+     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+     cout<<"\n\n";
 }
 
-void display_particularstudent(map<long,Student*>  &Students,int ID_NO)
+void display_particularstudent(map<long,Student*>  &Students)
 {
+    int ID_NO;
+    cout << "Enter the Student's ID:" << endl;
+    cin  >> ID_NO;
     Student* s = Students[ID_NO];
     cout << s;
     
     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
 }
 
-void display_internship(map<long,vector<internship>> &internships, long id)
-{
-    vector<internship>::iterator itr;   
-    int flag=0; 
-    cout << "Internship Details of the user are as follows:\n\n";
-    for (itr = internships[id].begin(); itr != internships[id].end(); ++itr)    
-    {            
-        cout << "\nCompany Name : " << itr->companyName ;                                    
-        cout << "\nDuration : From " << itr->startDate << " to " << itr->endDate;    
-        cout << "\nType :" << itr->type <<endl;                 
-        flag=1;                        
+
+void company_based_details(map<long,JobOffer*>&j){
+    cout << "Enter the company name:" ;
+    string company;
+    cin >> company;
+    cout << "The students placed in " << company << "are:" << endl;
+    for(auto i : j){
+        if(i.second->getCompanyName() == company){  
+            cout << i.first << "\t" << i.second->getname() << "\t" << i.second->getPlacedStatus() << endl ;
+        }
     }
-    if(!flag)
-        cout << "No Internship details found.";
-    cout << "\n\n";
-    
+}
+
+void  batchwise_placement_details(map<long,JobOffer*> j){
+    cout << "Which  Batch? (Mtech /Btech)" << endl;
+    string  b=0;
+    cin>>b;
+
+    cout << "The students of  "<< b << " are as follows: " << endl;
+    for(auto i : j){
+        if (i.second->getbatch() == b){
+            cout << i.first << "\t" << i.second->getname() << "\t" << i.second->getPlacedStatus() << endl;
+        }
+    }
 }
 
 #endif

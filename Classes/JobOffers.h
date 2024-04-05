@@ -7,25 +7,30 @@ using namespace std;
 class JobOffer {
 private:
     int id;
-    string name;
+    string name,batch; //of students
     string companyName;
     string writtenTestStatus;
     string interviewStatus;
     string placed;
+    int package;
+
     
 public:
-    JobOffer(const int id, const string& name, const string& companyName, const string& writtenTestStatus, const string& interviewStatus, string isplaced){
-        this->id = id;
+    JobOffer( const string& name,const string& batch, const string& companyName, const string& writtenTestStatus, const string& interviewStatus, string isplaced,int package){
+        //this->id = id;
+        this->batch = batch;
         this->name = name;
         this->companyName = companyName;
         this->writtenTestStatus = writtenTestStatus;
         this->interviewStatus = interviewStatus;
         this->placed = isplaced;
+        this->package = package;
+
     }
     
     //getters
-    int getid() const {
-        return id;
+    int getpackage() const {
+        return package;
     }
     
     string getname() const {
@@ -47,10 +52,13 @@ public:
     string getPlacedStatus() const {
         return placed;
     }
+    string getbatch() const {
+        return batch;
+    }
     
     // setters
-    void setid(int id) {
-        this->id = id;
+    void setpackage(int p) {
+        this->package = p;
     }
     
     void setname(const string& name) {
@@ -72,6 +80,9 @@ public:
     void setPlacedStatus(string placed) {
         this->placed = placed;
     }
+    void setbatch(string batch) {
+        this->batch = batch;
+    }
     friend ostream& operator<<(ostream& out, JobOffer& joboffer);
 };
 
@@ -79,12 +90,14 @@ public:
 ostream& operator<<(ostream& out, JobOffer& joboffer)
 {
     out << "\t || JOB OFFERS ||" << endl;
-    out << "Student ID: " << joboffer.getid() << endl;
+    out << "Student ID: " << joboffer.id << endl;
     out << "Student Name: " << joboffer.getname() << endl;
+    out << "Batch:" << joboffer.getbatch() << endl;
     out << "Company Name: " << joboffer.getCompanyName() << endl;
     out << "Written Test Status: " << joboffer.getWrittenTestStatus() << endl;
     out << "Interview Status: " << joboffer.getInterviewStatus() << endl;
     out << "Placed or Not: " << joboffer.getPlacedStatus() << endl;
+    out << "Package:" << joboffer.getpackage() << "LPA" << endl;
     return out;
 }
 

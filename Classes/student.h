@@ -23,8 +23,8 @@ public:
 
 
   // Constructor to initialize student object
-  Student(const int id,const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone){
-    this->id = id;
+  Student(const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone){
+    //this->id = id;
     this->name = name;
     yearOfPlacement = year;
     this->program = program;
