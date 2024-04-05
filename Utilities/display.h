@@ -10,21 +10,22 @@ using namespace std;
 #include"..\Classes\file_reader.h"
 #include"..\Classes\student.h"
 #include"..\Classes\JobOffers.h"
+#include"..\Classes\placement.h"
 #include <bits/stdc++.h>
-void display()
+void display(map<long,Student*> &students,vector<company> &company,map<long,vector<Internship>>& internships,map<long,Schedule*>& schedule,map<long,JobOffer*>& jf,vector<Internship>&data)
 {
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
     cout<<"Enter 2 to display the past placement program details"<<endl;
     cout<<BOLD<<"ENTER YOUR CHOICE:"<<RESET<<endl;
     int c; cin >> c;
-    display_choice(c);
+    display_choice(c,students,company,internships,schedule,jf,data);
 }
-void display_choice1(int choice1)
+void display_choice1(int choice1,map<long,Student*>&students,map<long,vector<Internship>>& internships,map<long,Schedule*>& schedule,vector<Internship>&data)
 {
     if(choice1 == 1)
     {
         cout<<"THIS IS THE TABLE CONTAINING DATA OF ALL STUDENTS:"<<endl;
-        void display_allstudents();
+        display_allstudents(students);
     }
     else if(choice1 == 2)
     {
@@ -54,30 +55,32 @@ void display_choice1(int choice1)
         cout<<"YOU OPTED TO VIEW COMPANY DETAILS"<<endl;
     }
 };
-void display_choice2(int choice2)
+void display_choice2(int choice2,map<long,JobOffer*> j)
 {
     switch(choice2)
     {
         case 1:
             cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS THROUGH COMPANY NAMES."<<endl;
-            void company_based_details(map<long,JobOffer*>&j);
+            company_based_details(j);
             break;
         
         case 2:
             cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
-            void  batchwise_placement_details(map<long,JobOffer*> j);
+             batchwise_placement_details(j);
 
             break;
         
         case 3:
             cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS BASED ON STATISTICS:"<<endl;
+            max_package(j) ;
+            mean_package(j);
             break;
         
         default:
             cout<<"LOCATION WISE:"<<endl;
     }
 }
-void display_choice(int choice)
+void display_choice(int choice,map<long,Student*> &students,vector<company> &company,map<long,vector<Internship>>& internships,map<long,Schedule*>& schedule,map<long,JobOffer*>& jf,vector<Internship>&data)
 {
     switch (choice)
     {
@@ -87,7 +90,7 @@ void display_choice(int choice)
         cout<<"ENTER 2 - IF YOU WANT TO VIEW DETAIL OF A PARTICULAR STUDENT."<<endl;
         int choice1;
         cin >> choice1;
-        display_choice1(choice1);
+        display_choice1(choice1,students,internships,schedule,data);
         break;
     case 2:
         cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS:"<<endl;
@@ -97,7 +100,7 @@ void display_choice(int choice)
         cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
         cout << "ENTER 3 = TO DISPLAY PLACEMENT STATISTICS:"<<endl;
         cout << "ENTER 4 = TO DISPLAY PLACEMENT DETAILS BATCHWISE:"<<endl;
-        display_choice2(choice2);
+        display_choice2(choice2,jf);
         break;
     
     default:
