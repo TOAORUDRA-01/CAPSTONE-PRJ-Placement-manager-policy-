@@ -183,9 +183,9 @@ void company_based_details(map<long,JobOffer*>&j){
 }
 
 void  batchwise_placement_details(map<long,JobOffer*> j){
-    cout << "Which  Batch? (Mtech /Btech)" << endl;
-    string  b=0;
-    cin>>b;
+    cout << "Which  Batch? (Mtech ICT/Btech ICT)" << endl;
+    string  b;
+    getline(cin,b);
 
     cout << "The students of  "<< b << " are as follows: " << endl;
     for(auto i : j){
