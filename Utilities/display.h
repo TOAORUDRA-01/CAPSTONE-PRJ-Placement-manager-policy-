@@ -8,6 +8,7 @@ using namespace std;
 #include"placement.h"
 #include"schedule.h"
 #include"student.h"
+#include <bits/stdc++.h>
 void display()
 {
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
@@ -20,14 +21,35 @@ void display_choice1(int choice1)
 {
     if(choice1 == 1)
     {
-        cout<<"THIS IS THE TABLE CONTAINING PLACEMENT DATA OF ALL STUDENTS:"<<endl;
+        cout<<"THIS IS THE TABLE CONTAINING DATA OF ALL STUDENTS:"<<endl;
         void display_allstudents();
     }
     else if(choice1 == 2)
     {
-        cout<<"THIS IS THE PLACEMENT DATA OF THE PARTICULAR STUDENT:"<<endl;
+        cout<<"THIS IS THE DATA OF THE PARTICULAR STUDENT:"<<endl;
+    }
+    else if(choice1 == 3)
+    {
+        cout<<"YOU OPTED TO VIEW COMPANY DETAILS"<<endl;
     }
 };
+void display_choice2(int choice2)
+{
+    switch(choice2)
+    {
+        case 1:
+            cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS THROUGH COMPANY NAMES."<<endl;
+            break;
+        
+        case 2:
+            cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS LOCATION WISE."<<endl;
+            break;
+        
+        case 3:
+            cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS BASED ON STATISTICS:"<<endl;
+            break;
+    }
+}
 void display_choice(int choice)
 {
     
@@ -35,9 +57,9 @@ void display_choice(int choice)
     {
     case 1:
         
-        cout<<"YOU OPTED TO DISPLAY ONGOING PROCESS OF PLACEMENT."<<endl;
-        cout<<"ENTER 1 - IF YOU WANT TO VIEW DETAILS OF ALL STUDENTS"<<endl;
-        cout<<"ENTER 2 - IF YOU WANT TO VIEW DETAIL OF A PARTICULAR STUDENT"<<endl;
+        cout<<"YOU OPTED TO DISPLAY ONGOING PROCESS OF PLACEMENT:"<<endl;
+        cout<<"ENTER 1 - IF YOU WANT TO VIEW DETAILS OF ALL STUDENTS."<<endl;
+        cout<<"ENTER 2 - IF YOU WANT TO VIEW DETAIL OF A PARTICULAR STUDENT."<<endl;
         int choice1;
         cin >> choice1;
         display_choice1(choice1);
@@ -45,9 +67,15 @@ void display_choice(int choice)
 
     
     case 2:
-        cout<<"YOU OPTED TO DISPLAY THE PAST PLACEMENT PROGRAM DETAILS"<<endl;
+        cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS:"<<endl;
+        int choice2;
+        cin >> choice2;
+        cout << "ENTER 1 = TO DISPLAY PLACEMENT DETAILS BASED ON COMPANY NAME:"<<endl;
+        cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
+        cout << "ENTER 3 = TO DISPLAY PLACEMENT STATISTICS:"<<endl;
+        display_choice2(choice2);
         break;
-
+    
     default:
         break;
     }
@@ -59,56 +87,60 @@ void display_choice(int choice)
 
 
 
-void display_allstudents(vector<Student> &Students)
+void display_allstudents(map<long, Student*> &Student)
 {
-    cout << "\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
-    cout.width(3);
-    cout << "\t\t\t\t| Serial No."<< "|";
-    cout.width(12);
-    cout << "Name"<< "   \t|";
-    cout.width(10);
-    cout << "ID"<< "\t|";
-    cout.width(8);
-    cout << "Branch"<<"\t|";
-    cout.width(5);
-    cout << "CGPA"<<"\t|";
-    cout << endl; 
-    cout.width(6);
-    cout << "Year"<<"\t|" ;
-    cout << endl;
-    cout<<"\t\t\t\t-------------------------------------------------"<<endl;
-    int index = 1;
-        for (auto student : Students)
-        {   cout<<"\t\t\t\t";
-            cout.width(3);
-            cout << "|   "<<index++ << " \t    |";
-            cout.width(15);
-            cout << student.name << "\t|";
-            cout.width(10);
-            cout << student.id << "\t|";
-            cout << endl;
-            cout.width(8);
-            cout << student.program << "\t| ";
-            cout << endl;
-            cout.width(20);
-            if (student.cgpa < 3.0)
-            {
-                cout << "Not elligible for placement \t|" << endl;
-            }
-            else
-            {
-                cout << student.cgpa<< " ";
-                cout << "[Eligible for placement] \t|"<<endl;
-            }
-            cout.width(6);
-            cout << student.yearOfPlacement << " \t| ";
-            cout << endl;
+    for( auto i : &Students )
+    {   
+        cout << '\t' << i.first << '\t' << i.second << '\n';
+    }
+    // cout << "\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
+    // cout.width(3);
+    // cout << "\t\t\t\t| Serial No."<< "|";
+    // cout.width(12);
+    // cout << "Name"<< "   \t|";
+    // cout.width(10);
+    // cout << "ID"<< "\t|";
+    // cout.width(8);
+    // cout << "Branch"<<"\t|";
+    // cout.width(5);
+    // cout << "CGPA"<<"\t|";
+    // cout << endl; 
+    // cout.width(6);
+    // cout << "Year"<<"\t|" ;
+    // cout << endl;
+    // cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+    // int index = 1;
+    //     for (auto student : Students)
+    //     {   cout<<"\t\t\t\t";
+    //         cout.width(3);
+    //         cout << "|   "<<index++ << " \t    |";
+    //         cout.width(15);
+    //         cout << student.name << "\t|";
+    //         cout.width(10);
+    //         cout << student.id << "\t|";
+    //         cout << endl;
+    //         cout.width(8);
+    //         cout << student.program << "\t| ";
+    //         cout << endl;
+    //         cout.width(20);
+    //         if (student.cgpa < 3.0)
+    //         {
+    //             cout << "Not elligible for placement \t|" << endl;
+    //         }
+    //         else
+    //         {
+    //             cout << student.cgpa<< " ";
+    //             cout << "[Eligible for placement] \t|"<<endl;
+    //         }
+    //         cout.width(6);
+    //         cout << student.yearOfPlacement << " \t| ";
+    //         cout << endl;
             
-        }
-    cout << "\n"
-         << endl;
-    cout<<"\t\t\t\t-------------------------------------------------"<<endl;
-    cout<<"\n\n";
+    //     }
+    // cout << "\n"
+    //      << endl;
+    // cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+    // cout<<"\n\n";
 }
 
 void display_particularstudent(map<long,Student*>  &Students)
@@ -121,3 +153,4 @@ void display_particularstudent(map<long,Student*>  &Students)
     
     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
 }
+
