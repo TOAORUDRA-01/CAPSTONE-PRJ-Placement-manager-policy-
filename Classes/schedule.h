@@ -7,8 +7,8 @@ class Schedule{
     string s_time, e_time,date,location; //the timings for interview of individuals
 
     public:
-    Schedule(long id,string name,string cmpname,string date,string s_time, string e_time,string location){
-        this->id = id;
+    Schedule(string name,string cmpname,string date,string s_time, string e_time,string location){
+        
         this->stdname = name;
         this->s_time=s_time;
         this->e_time=e_time;
@@ -26,7 +26,7 @@ class Schedule{
         return id;}
 
     string getstdname() const{
-        return name;}
+        return stdname;}
 
     string get_stime()const{
         return s_time;
@@ -49,8 +49,8 @@ class Schedule{
     void setid(const long& id){
         this->id=id;}
 
-    void setname(const string& name){
-        this->name=name;}
+    void setstdname(const string& name){
+        this->stdname=name;}
 
     void sets_time(const string s){
         s_time = s;
@@ -74,7 +74,7 @@ ostream& operator<<(ostream& out,Schedule& schedule)
 {
     out<<"\t || SCHEDULE ||"<<endl;
     out<<"Student ID:  "<<schedule.id<<endl;
-    out<<"Student Name:  "<<schedule.name<<endl;
+    out<<"Student Name:  "<<schedule.stdname<<endl;
     out<<"Start Time:  "<<schedule.s_time<<endl;
     out<<"End Time:  "<<schedule.e_time<<endl;
     out<<"Date of Interview:  "<<schedule.date<<endl;
