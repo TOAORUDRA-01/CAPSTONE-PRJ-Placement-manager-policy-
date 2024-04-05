@@ -52,7 +52,7 @@ void display_choice1(int choice1,map<long,Student*>&students,map<long,vector<Int
     }
     else if(choice1 == 3)
     {
-        cout<<"YOU OPTED TO VIEW COMPANY DETAILS"<<endl;
+        cout<<"YOU OPTED TO VIEW SCHEDULE DETAILS:"<<endl;
     }
 };
 void display_choice2(int choice2,map<long,JobOffer*> j)
@@ -97,13 +97,14 @@ void display_choice(int choice,map<long,Student*> &students,vector<company> &com
         int choice2;
         cin >> choice2;
         cout << "ENTER 1 = TO DISPLAY PLACEMENT DETAILS BASED ON COMPANY NAME:"<<endl;
-        cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
+        cout << "ENTER 4 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
         cout << "ENTER 3 = TO DISPLAY PLACEMENT STATISTICS:"<<endl;
-        cout << "ENTER 4 = TO DISPLAY PLACEMENT DETAILS BATCHWISE:"<<endl;
+        cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS BATCHWISE:"<<endl;
         display_choice2(choice2,jf);
         break;
     
     default:
+        cout<<"YOU OPTED TO VIEW THE COMPANY DETAILS:"
         break;
     }
 
