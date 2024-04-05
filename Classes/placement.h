@@ -4,6 +4,8 @@ using namespace std;
 #define PLACEMENT_H
 #include <string>
 #include <vector>
+#include<map>
+#include"..\Classes\JobOffers.h"
 class placement{
     //vector<string> package_offered;
     int avgpackage;
@@ -13,10 +15,10 @@ class placement{
     int placed; //placed at the end of drive
 
 //constructor
-placement(vector<string> package, int &avgpackage, int &highestpackage, float rate_of_placement, int appeared, int placed){
-    for(int i = 0;i<package_offered.size();i++){
-        this->package_offered = package_offered;
-    }
+placement( int &avgpackage, int &highestpackage, float rate_of_placement, int appeared, int placed){
+    // for(int i = 0;i<package_offered.size();i++){
+    //     this->package_offered = package_offered;
+    // }
     this->avgpackage = avgpackage;
     this->highestpackage = highestpackage;
     this->rate_of_placement = rate_of_placement;
@@ -24,8 +26,8 @@ placement(vector<string> package, int &avgpackage, int &highestpackage, float ra
     this->placed = placed;
 }
     //getter
-vector<string> getPackage_offered() const{
-        return package_offered;}
+// vector<string> getPackage_offered() const{
+//         return package_offered;}
 
 int getAvgpackage() const{
     return avgpackage;}
@@ -43,8 +45,8 @@ int getPlaced() const{
     return placed;}
 
 //setters
-void setPackage_offered(const vector<string>& package) {
-    package_offered = package;}
+// void setPackage_offered(const vector<string>& package) {
+//     package_offered = package;}
 
 void setAvgpackage(const int& avgpackage) {
      this->avgpackage = avgpackage;}
@@ -60,14 +62,14 @@ void setAppeared(int appeared) {
 
 void setPlaced(int placed) {
     this->placed = placed;}
-friend int max_package(map<long,JobOffer*>j);
-friend int mean_package(map<long,JobOffer*>j);
+friend int max_package(map<long, JobOffer*>&j);
+friend int mean_package(map<long,JobOffer*>&j);
 };
-int max_package(map<long, JobOffer*>& j) {
+int max_package(map<long, JobOffer*>&j) {
     int max = 0;
     for (auto& i : j) {
-        if (i.second->package > max)
-            max = i.second->package;}
+        if (i.second->getpackage() > max)
+            max = i.second->getpackage();}
     return max;}
 
 
@@ -75,7 +77,7 @@ int mean_package(map<long,JobOffer*> j){
     int sum=0;
     int count = 0;
     for (auto& i : j) {
-        sum += i.second->package;
+        sum += i.second->getpackage();
         count++;
     }
         return sum / count;

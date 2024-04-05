@@ -4,10 +4,12 @@
 using namespace std;
 #ifndef DISPLAY_H
 #define DISPLAY_H
-#include"../Classes/company.h"
-#include"../Classes/company.h"
-#include"schedule.h"
-#include"student.h"
+#include"..\Classes\company.h"
+#include"..\Classes\internship.h"
+#include"..\Classes\schedule.h"
+#include"..\Classes\file_reader.h"
+#include"..\Classes\student.h"
+#include"..\Classes\JobOffers.h"
 #include <bits/stdc++.h>
 void display()
 {
@@ -39,12 +41,12 @@ void display_choice1(int choice1)
         {
             cout<< "YOU OPTED TO VIEW DETAILS OF A PARTICULAR STUDENT."<< endl;
             
-            display_particularstudent(map<long,Student*>  &Students,ID_NUMBER);
+            void display_particularstudent(map<long,Student*> &Students,int ID_NUMBER);
         }
         else if(ch == 2)
         {
             cout<< "YOU OPTED TO VIEW INTERNSHIP DETAILS:"<<endl;
-            display_internships()
+           void display_internships();
         }
     }
     else if(choice1 == 3)
@@ -58,10 +60,12 @@ void display_choice2(int choice2)
     {
         case 1:
             cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS THROUGH COMPANY NAMES."<<endl;
+            void company_based_details(map<long,JobOffer*>&j);
             break;
         
         case 2:
             cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
+            void  batchwise_placement_details(map<long,JobOffer*> j);
 
             break;
         
@@ -157,11 +161,8 @@ cout << "\n"
      cout<<"\n\n";
 }
 
-void display_particularstudent(map<long,Student*>  &Students)
+void display_particularstudent(map<long,Student*>  &Students,int ID_NO)
 {
-    int ID_NO;
-    cout << "Enter the Student's ID:" << endl;
-    cin  >> ID_NO;
     Student* s = Students[ID_NO];
     cout << s;
     
