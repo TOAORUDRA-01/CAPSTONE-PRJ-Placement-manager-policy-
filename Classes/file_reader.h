@@ -18,7 +18,7 @@ using namespace std;
 void tokenize_student(string s,map<string,Student*> &ms){
     stringstream line(s);
     string temp;
-
+    
     vector<string> row_info;
     while(getline(line,temp,',')){
         row_info.push_back(temp);        
@@ -50,19 +50,18 @@ void tokenize_company(string s, vector<company>& data){
     
 
 //     while(getline(line,temp,',')){
-//         i_row_info.push_back(temp);cout << "ok";
+//         i_row_info.push_back(temp);
 
 //     }
 
 //     for (int i = 1; i<= i_row_info.size();){
 //         Internship* inter = new Internship(i_row_info[i++],i_row_info[i++],i_row_info[i++],i_row_info[i++]);
-//         cout << "ok";
 
 //         data.push_back(*inter);
 //         }
 //         mr[i_row_info[0]] = data;
 
-// }
+//}
 void tokenizing_schedule(string s,map<string,Schedule*>&data){
     string temp;
     stringstream line(s);
@@ -108,6 +107,8 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
 
     // Read Student file
     fin.open("./Data/Student.csv");
+    getline(fin,line);
+    fflush(stdin);
     while (getline(fin, line)) {
         tokenize_student(line, students);
     }
@@ -118,6 +119,8 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
 
     // Read Company file
     fin.open("./Data/Company.csv");
+    getline(fin,line);
+    fflush(stdin);
     while (getline(fin, line)) {
         tokenize_company(line, companies);
     }
@@ -126,7 +129,7 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
     // Clear end-of-file flag
     fin.clear();
 
-    // Read Internship file
+    //Read Internship file
     // fin.open("./Data/Internship.csv");
     // while (getline(fin, line)) {
     //     tokenize_internship(line, internships, data);
@@ -136,15 +139,19 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
     // // Clear end-of-file flag
     // fin.clear();
 
-    // Read JobOffer file
+    //Read JobOffer file
     fin.open("./Data/JobOffer.csv");
+    getline(fin,line);
+    fflush(stdin);
     while (getline(fin, line)) {
         tokenize_jobOffers(line, jobOffers);
     }
     fin.close();
     fin.clear();
 
-    fin.open("./Data/Schedule");
+    fin.open("./Data/Schedule.csv");
+    getline(fin,line);
+    fflush(stdin);
     while(getline(fin, line)){
         tokenizing_schedule(line, schedule);
 }

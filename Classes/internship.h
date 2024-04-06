@@ -66,19 +66,20 @@ int index = 0;
         }
     }
     friend class Student;
-    friend ostream& operator<<(ostream& out,Internship& internship);
+    friend void display_internship(map<string,vector<Internship>> inter,vector<Internship>& internship,string ID);
     
     
     
 }; 
-// ostream& operator<<(ostream& out,vector<Internship>& internship){
-//    out<<"\t || INTERNSHIP DETAILS ||"<<endl;
+// void display_internship(map<string,vector<Internship>> inter,vector<Internship>& internship,string ID){
+//    cout<<"\t || INTERNSHIP DETAILS ||"<<endl;
+//    vector<Internship> in_ship = inter[ID];
 //    for(int i; i<internship.size();)
 //    { 
-//     out<<"Name of Internship: "<<internship[i++]<<endl;
-//     out<<"Duration: "<<internship[i++]<<endl;
-//     out<<"Type: "<<internship[i++]<<endl;
-//     return out;}
+//     cout<<"Name of Internship: "<<in_ship<<endl;
+//     cout<<"Duration: "<<internship[i++]<<endl;
+//     cout<<"Type: "<<internship[i++]<<endl;
+//     }
 // }
 
 #endif 

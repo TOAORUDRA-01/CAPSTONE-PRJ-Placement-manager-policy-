@@ -26,12 +26,12 @@ void display_allstudents(map<string, Student*> &Student)
      
      cout.width(8);
      cout << "Branch"<<"\t|";
-     cout.width(10);
+     cout.width(15);
      cout << "CGPA"<<"\t|";
      cout.width(6);
      cout << "Year"<<"\t|" ;
      cout << endl;
-     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+     cout<<"\t\t\t-----------------------------------------------------------------------------------------------------------------"<<endl;
     // /int index = 0;
     for( auto i = Student.begin(); i != Student.end(); i++ )
     { 
@@ -43,15 +43,15 @@ void display_allstudents(map<string, Student*> &Student)
              cout << i->second->getName() << "\t|";
              cout.width(8);
              cout << i->second->getProgram() << "\t| ";
-             cout.width(10);
+             cout.width(15);
              if (i->second->cgpa < 3.0)
              {
-                 cout << "Not elligible for placement \t|" << endl;
+                 cout << i->second->cgpa << " Not elligible for placement \t|" ;
              }
              else
              {
                  cout << i->second->cgpa<< " ";
-                 cout << "[Eligible for placement] \t|"<<endl;
+                 cout <<"[Eligible for placement] \t|";
              }
              cout.width(6);
              cout << i->second->getYearOfPlacement() << " \t| ";
@@ -62,7 +62,7 @@ void display_allstudents(map<string, Student*> &Student)
 }
 cout << "\n"
           << endl;
-     cout<<"\t\t\t\t-------------------------------------------------"<<endl;
+     cout<<"\t\t\t-----------------------------------------------------------------------------------------------------------------"<<endl;
      cout<<"\n\n";
 }
 
@@ -71,13 +71,13 @@ void display_particularstudent(map<string,Student*>  &Students,string ID_NO)
     Student* s = Students[ID_NO];
     cout << "\t\t\t----------------------------------------------------------------------------"<<endl;
     cout << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
-    cout << "  ID: " << ID_NO << endl;
-    cout << "  Name: " << s->name << endl;
-    cout << "  Year of Placement: " << s->yearOfPlacement << endl;
-    cout << "  Program: " << s->program << endl;
-    cout << "  CGPA: " << s->cgpa << endl;
-    cout << "  Email Id : " << s->email << endl;
-    cout << "  Phone Number : " << s->phone << endl;    
+    cout << "\t\t\t  ID: " << ID_NO << endl;
+    cout << "\t\t\t  Name: " << s->name << endl;
+    cout << "\t\t\t  Year of Placement: " << s->yearOfPlacement << endl;
+    cout << "\t\t\t  Program: " << s->program << endl;
+    cout << "\t\t\t  CGPA: " << s->cgpa << endl;
+    cout << "\t\t\t  Email Id : " << s->email << endl;
+    cout << "\t\t\t  Phone Number : " << s->phone << endl;    
     
     cout<<"\t\t\t----------------------------------------------------------------------------"<<endl;
 }
