@@ -68,7 +68,7 @@ class Schedule{
     void setlocation(const string& location){
         this->location=location;
     }
-friend void display_schedule(string ID, map<string,JobOffer*>& j);
+friend void display_schedule(string ID, map<string,Schedule*>& j);
 };
 
 void display_schedule(string ID, map<string,Schedule*>& s)
