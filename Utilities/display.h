@@ -159,7 +159,7 @@ void display_choice2(int choice2,map<long,JobOffer*> j)
             cout<<"LOCATION WISE:"<<endl;
     }
 }
-void display_allcompany(map<long,company*> &company)
+void display_allcompany(vector<company> &company)
 {
     cout << "\t\t\t\t\t\t  LIST OF COMPANY\n";
     cout.width(5);
@@ -168,26 +168,26 @@ void display_allcompany(map<long,company*> &company)
     cout<<" COMPANY NAME"<<"|";
     cout.width(18);
     cout<<"| ADDRESS OF COMPANY"<<"|";
-    cout.widht(7);
+    cout.width(7);
     cout<<"| PACKAGE"<<"|";
     cout.width(10);
     cout<<"| HIRED_STUDENTS"<<"|";
     cout.width(7);
     cout<<"| CRITERIA"<<"|";
-    cout.widht(11);
+    cout.width(11);
     cout<<"| NO. OF ALUMNI"<<"|";
     cout.width(15);
     cout<<"| PRESENT_AT_CAMPUS"<<"|";
     cout<<endl;
     cout<<"\\\\\\-----------------------------------------//////";
     int index = 1;
-        for(auto company : Companies)
+        for(auto company : company)
         {
             cout<<"\t\t";
             cout<<"|  "<<index++<<" | ";
-            cout.widht(12);
+            cout.width(12);
             cout<< company.cmpname<<"\t|";
-            cout.widht(20);
+            cout.width(20);
             cout<< company.cmpaddress<<"\t|";
             cout.width(6);
             cout<< company.package<<"\t|";
@@ -231,7 +231,7 @@ void display_choice(int choice,map<long,Student*> &students,vector<company> &com
 
     case 4:
         cout<<"IF YOU WANT TO GO TO PREVIOUS MENU."<<endl;
-        goto disp:
+        
     }
 
 }
@@ -241,7 +241,7 @@ void display_choice(int choice,map<long,Student*> &students,vector<company> &com
 
 void display(map<long,Student*> &students,vector<company> &company,map<long,vector<Internship>>& internships,map<long,Schedule*>& schedule,map<long,JobOffer*>& jf,vector<Internship>&data)
 {
-    disp:
+    
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
     cout<<"Enter 2 to display the past placement program details"<<endl;
     cout<<BOLD<<"ENTER YOUR CHOICE:"<<RESET<<endl;
