@@ -1,5 +1,5 @@
-#ifndef FILE_READER.H
-#define FILE_READER.H
+#ifndef FILE_READER_H
+#define FILE_READER_H
 #include <bits/stdc++.h>
 #include<fstream>
 using namespace std;

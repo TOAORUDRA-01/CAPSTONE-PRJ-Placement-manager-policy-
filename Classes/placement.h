@@ -6,7 +6,7 @@ using namespace std;
 #include <vector>
 #include<map>
 #include"..\Classes\JobOffers.h"
-#include "../../../../../../MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h"
+#include <bits/stdc++.h>
 class placement{
     //vector<string> package_offered;
     int avgpackage;

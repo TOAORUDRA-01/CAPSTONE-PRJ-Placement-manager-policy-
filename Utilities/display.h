@@ -133,7 +133,7 @@ void  batchwise_placement_details(map<long,JobOffer*> j){
         cout<<"YOU OPTED TO VIEW SCHEDULE DETAILS:"<<endl;
     }
 }
-void display_allcompany(vector<company> &company)
+void display_allcompanydetails(vector<company> &company)
 {
     cout << "\t\t\t\t\t\t  LIST OF COMPANY\n";
     cout.width(5);
