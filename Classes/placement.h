@@ -6,6 +6,7 @@ using namespace std;
 #include <vector>
 #include<map>
 #include"..\Classes\JobOffers.h"
+#include "../../../../../../MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h"
 class placement{
     //vector<string> package_offered;
     int avgpackage;
@@ -62,25 +63,29 @@ void setAppeared(int appeared) {
 
 void setPlaced(int placed) {
     this->placed = placed;}
-friend int max_package(map<long, JobOffer*>&j);
-friend int mean_package(map<long,JobOffer*>&j);
+friend void max_package(std::map<long, JobOffer*>&j);
+friend void mean_package(std::map<long,JobOffer*>&j);
 };
-int max_package(map<long, JobOffer*>&j) {
+void max_package(map<long, JobOffer*>&j) {
     int max = 0;
-    for (auto& i : j) {
-        if (i.second->getpackage() > max)
-            max = i.second->getpackage();}
-    return max;}
+    for (auto i = j.begin(); i != j.end(); i++) {
+        if (i->second->getpackage() > max)
+            max = i->second->getpackage();
+            }
+
+            cout << "Highest Package is :" << max << endl;
+    }
 
 
-int mean_package(map<long,JobOffer*> j){
-    int sum=0;
+void mean_package(map<long,JobOffer*>& j){
+    double sum=0;
     int count = 0;
-    for (auto& i : j) {
-        sum += i.second->getpackage();
+    for (auto i = j.begin(); i != j.end(); i++) {
+        sum += i->second->getpackage();
         count++;
     }
-        return sum / count;
+        int mean = sum/count;
+        cout << "The mean package this year is: " << mean << endl;
 }
 
 
