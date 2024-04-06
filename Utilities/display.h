@@ -133,31 +133,6 @@ void  batchwise_placement_details(map<long,JobOffer*> j){
         cout<<"YOU OPTED TO VIEW SCHEDULE DETAILS:"<<endl;
     }
 }
-void display_choice2(int choice2,map<long,JobOffer*> j)
-{
-    switch(choice2)
-    {
-        case 1:
-            cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS THROUGH COMPANY NAMES."<<endl;
-            company_based_details(j);
-            break;
-        
-        case 2:
-            cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
-             batchwise_placement_details(j);
-
-            break;
-        
-        case 3:
-            cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS BASED ON STATISTICS:"<<endl;
-            max_package(j) ;
-            mean_package(j);
-            break;
-        
-        default:
-            cout<<"LOCATION WISE:"<<endl;
-    }
-}
 void display_allcompany(vector<company> &company)
 {
     cout << "\t\t\t\t\t\t  LIST OF COMPANY\n";
@@ -200,6 +175,32 @@ void display_allcompany(vector<company> &company)
             cout<< company.at_college<<"|\n";
         }
 }
+void display_choice2(int choice2,map<long,JobOffer*> j)
+{
+    switch(choice2)
+    {
+        case 1:
+            cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS THROUGH COMPANY NAMES."<<endl;
+            company_based_details(j);
+            break;
+        
+        case 2:
+            cout<<"YOU OPTED TO VIEW PLACEMENT DETAILS BATCH WISE."<<endl;
+             batchwise_placement_details(j);
+
+            break;
+        
+        case 3:
+            cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS BASED ON STATISTICS:"<<endl;
+            max_package(j) ;
+            mean_package(j);
+            break;
+        
+        default:
+            cout<<"LOCATION WISE:"<<endl;
+    }
+}
+
 void display_choice(int choice,map<long,Student*> &students,vector<company> &company,map<long,vector<Internship>>& internships,map<long,Schedule*>& schedule,map<long,JobOffer*>& jf,vector<Internship>&data)
 {
     switch (choice)
