@@ -14,17 +14,12 @@ using namespace std;
 void tokenize_student(string s,map<long,Student*> &ms){
     stringstream line(s);
     string temp;
-    vector<Internship> internships;
 
     vector<string> row_info;
-    int i = 0;
     while(getline(line,temp,',')){
-        row_info.push_back(temp);
-        i++;
-        
+        row_info.push_back(temp);        
     }
     
-
     //adding value to the data
     ms[stol(row_info[0])] = new Student(row_info[1],row_info[2],stod(row_info[3]),stoi(row_info[4]),row_info[5],row_info[6]);
     
@@ -114,7 +109,7 @@ void read_file(map<long,Student*> &students,vector<company> &company,map<long,ve
     }
     fin.close();
 
-    fin.open("./Data/Job Offer.csv");
+    fin.open("./Data/JobOffer.csv");
     while(!fin.eof()){
         fin >> line;
         tokenize_jobOffers(line,jf);
@@ -122,8 +117,5 @@ void read_file(map<long,Student*> &students,vector<company> &company,map<long,ve
     fin.close();
 
 
-
 }
-
-
 #endif

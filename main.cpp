@@ -16,6 +16,8 @@ int main(){
     vector<company> company;
     map<long,vector<Internship>> internships;
     vector<Internship>inter;
+    read_file(students,company, internships, schedule,Joboffers,inter);
+    
     display(students,company,internships,schedule,Joboffers,inter);
 
 return 0;

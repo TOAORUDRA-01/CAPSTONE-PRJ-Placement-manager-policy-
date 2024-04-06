@@ -14,9 +14,9 @@ using namespace std;
 #include <bits/stdc++.h>
 void display_allstudents(map<long, Student*> &Student)
 {
-    cout << "\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
+    cout << "\t\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
      cout.width(3);
-     cout << "\t\t\t\t| Serial No."<< "|";
+     cout << "\t\t\t| Serial No."<< "|";
      cout.width(12);
      cout << "Name"<< "   \t|";
      cout.width(10);
@@ -25,37 +25,36 @@ void display_allstudents(map<long, Student*> &Student)
      cout << "Branch"<<"\t|";
      cout.width(5);
      cout << "CGPA"<<"\t|";
-     cout << endl; 
      cout.width(6);
      cout << "Year"<<"\t|" ;
      cout << endl;
      cout<<"\t\t\t\t-------------------------------------------------"<<endl;
     // /int index = 0;
-    for( auto i : Student )
-    { 
+    for( auto i = Student.begin(); i != Student.end(); i++ )
+    { cout << "Hi";
              cout<<"\t\t\t\t";
              cout.width(3);
             // cout << "|   "<<index++ << " \t    |";
              cout.width(10);
-             cout << i.second->id << "\t|";
+             cout << i->second->id << "\t|";
               cout.width(15);
-             cout << i.second->getName() << "\t|";
+             cout << i->second->getName() << "\t|";
              cout << endl;
              cout.width(8);
-             cout << i.second->getProgram() << "\t| ";
+             cout << i->second->getProgram() << "\t| ";
              cout << endl;
              cout.width(20);
-             if (i.second->cgpa < 3.0)
+             if (i->second->cgpa < 3.0)
              {
                  cout << "Not elligible for placement \t|" << endl;
              }
              else
              {
-                 cout << i.second->cgpa<< " ";
+                 cout << i->second->cgpa<< " ";
                  cout << "[Eligible for placement] \t|"<<endl;
              }
              cout.width(6);
-             cout << i.second->getYearOfPlacement() << " \t| ";
+             cout << i->second->getYearOfPlacement() << " \t| ";
              cout << endl;
             
          
@@ -215,12 +214,12 @@ void display_choice(int choice,map<long,Student*> &students,vector<company> &com
         break;
     case 2:
         cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS:"<<endl;
-        int choice2;
-        cin >> choice2;
         cout << "ENTER 1 = TO DISPLAY PLACEMENT DETAILS BASED ON COMPANY NAME:"<<endl;
         cout << "ENTER 4 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
         cout << "ENTER 3 = TO DISPLAY PLACEMENT STATISTICS:"<<endl;
         cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS BATCHWISE:"<<endl;
+        int choice2;
+        cin >> choice2;
         display_choice2(choice2,jf);
         break;
     
