@@ -6,7 +6,7 @@ using namespace std;
 
 class JobOffer {
 private:
-    int id;
+    string id;
     string name,batch; //of students
     string companyName;
     string writtenTestStatus;

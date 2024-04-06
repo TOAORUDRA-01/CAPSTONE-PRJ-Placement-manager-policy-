@@ -1,7 +1,6 @@
 #include<iostream> 
 #include<bits/stdc++.h>
  #include<fstream>
- #include"Classes/company.h"
  #include"Classes/schedule.h"
  #include"Classes/student.h"
  #include"Classes/internship.h"
@@ -10,16 +9,17 @@
 using namespace std;
 
 int main(){
-    map<long, Student*>students;
-    map<long,Schedule*>schedule;
-    map<long, JobOffer*> Joboffers;
+    map<string, Student*>students;
+    map<string,Schedule*>schedule;
+    map<string, JobOffer*> Joboffers;
     vector<company> company;
-    map<long,vector<Internship>> internships;
+    map<string,vector<Internship>> internships;
     vector<Internship>inter;
-    read_file(students,company, internships, schedule,Joboffers,inter);
-    
-    display(students,company,internships,schedule,Joboffers,inter);
 
+    read_file(students,company, internships, schedule,Joboffers,inter);
+    display(students,company,internships,schedule,Joboffers,inter);
+    
+    
 return 0;
 
 }

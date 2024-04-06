@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <string>
 #include<vector>
 using namespace std;
@@ -8,16 +8,16 @@ using namespace std;
 class Internship{
         private:
         string name;
-        int duration;
+        string duration;
         string type;
-        int sr_no;
+        string sr_no;
         string stdname;  //student name who is doing internship
         
         public:
        vector<Internship> internships;
-        Internship(string stdname,string name, int duration, string type) {
+        Internship(string stdname,string name, string duration, string type) {
         this->name = name;
-        this->sr_no = sr_no;
+       // this->sr_no = sr_no;
         this->stdname = stdname;
         this->duration = duration;
         this->type = type;
@@ -29,7 +29,8 @@ class Internship{
 
         bool flag = true;
         string name, type,stdname; 
-        int sr_no,duration ;
+        string sr_no;
+        string duration ;
         char c;
         cout << "  Enter the internship details which you want to add:" << endl;
 
@@ -80,4 +81,4 @@ int index = 0;
 //     return out;}
 // }
 
-#endif
+#endif 

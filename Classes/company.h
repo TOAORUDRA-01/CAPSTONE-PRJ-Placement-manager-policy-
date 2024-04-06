@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 #ifndef COMPANY_H
 #define COMPANY_H
@@ -12,11 +12,11 @@ class company {
     string package;
     string hiredstudents;
     string criteria; // CGPA or none
-    int no_of_alumni;
-    bool at_college; //present at college or not
+    string no_of_alumni;
+    string at_college; //present at college or not
 
 //constructor
-company(const string &cmpname, const string &cmpaddress, string package, string hiredstudents, string criteria, int no_of_alumni, bool at_college){
+company(const string &cmpname, const string &cmpaddress, string package, string hiredstudents, string criteria, string no_of_alumni, string at_college){
     this->cmpname = cmpname;
     this->cmpaddress = cmpaddress;
     this->package = package;
@@ -39,10 +39,10 @@ company(const string &cmpname, const string &cmpaddress, string package, string 
     string gethiredstudents() const{
         return hiredstudents;
     }
-    int getno_of_alumni() const{
+    string getno_of_alumni() const{
         return no_of_alumni;
     }
-    bool getat_college() const{
+    string getat_college() const{
         return at_college;
     }
     string getcriteria() const{

@@ -11,9 +11,9 @@ using namespace std;
 class Student {
 public:
   // Member variables
-  int id;
+  string id;
   string name;
-  int yearOfPlacement;
+  string yearOfPlacement;
   string program;
   double cgpa;
   string email;
@@ -23,7 +23,7 @@ public:
 
 
   // Constructor to initialize student object
-  Student(const string& name,  const string& program, double cgpa,int year, const string& email, const string& phone){
+  Student(const string& name,  const string& program, double cgpa,string year, const string& email, const string& phone){
     //this->id = id;
     this->name = name;
     yearOfPlacement = year;
@@ -40,7 +40,7 @@ public:
     string getName() const{
         return name;
     }
-    int getYearOfPlacement() const{
+    string getYearOfPlacement() const{
         return yearOfPlacement;
     }
     string getProgram() const{

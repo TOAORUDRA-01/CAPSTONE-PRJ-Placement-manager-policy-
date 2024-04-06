@@ -1,9 +1,9 @@
 #ifndef SCHEDULE_H
 #define SCHEDULE_H
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 class Schedule{
-    long id; string stdname,cmpname;//unordered_map<int, string> status = {{0,"Complete"}, {1,"Fail"}}; //for interview
+    string id; string stdname,cmpname;//unordered_map<int, string> status = {{0,"Complete"}, {1,"Fail"}}; //for interview
     string s_time, e_time,date,location; //the timings for interview of individuals
 
     public:
@@ -22,7 +22,7 @@ class Schedule{
     // string getStatus(bool b) { 
     //     return status[b];
     // }
-    long getid() const{
+    string getid() const{
         return id;}
 
     string getstdname() const{
@@ -46,7 +46,7 @@ class Schedule{
         return location;}
 
     //All setters
-    void setid(const long& id){
+    void setid(const string& id){
         this->id=id;}
 
     void setstdname(const string& name){
@@ -68,19 +68,21 @@ class Schedule{
     void setlocation(const string& location){
         this->location=location;
     }
-    friend ostream& operator<<(ostream& out ,Schedule& schedule);
+friend void display_schedule(string ID, map<string,JobOffer*>& j);
 };
-ostream& operator<<(ostream& out,Schedule& schedule)
+
+void display_schedule(string ID, map<string,Schedule*>& s)
 {
-    out<<"\t || SCHEDULE ||"<<endl;
-    out<<"Student ID:  "<<schedule.id<<endl;
-    out<<"Student Name:  "<<schedule.stdname<<endl;
-    out<<"Start Time:  "<<schedule.s_time<<endl;
-    out<<"End Time:  "<<schedule.e_time<<endl;
-    out<<"Date of Interview:  "<<schedule.date<<endl;
-    out<<"Company Name:  "<<schedule.cmpname<<endl;
-    out<<"Room No. :  "<<schedule.location<<endl;
-    return out;
+    Schedule* sche = s[ID];
+    cout<<"\t || SCHEDULE ||"<<endl;
+    cout<<"Student ID:  "<<sche->getid()<<endl;
+    cout<<"Student Name:  "<<sche->getstdname()<<endl;
+    cout<<"Start Time:  "<<sche->get_stime()<<endl;
+    cout<<"End Time:  "<<sche->get_etime()<<endl;
+    cout<<"Date of Interview:  "<<sche->getdate()<<endl;
+    cout<<"Company Name:  "<<sche->getcmpname()<<endl;
+    cout<<"Room No. :  "<<sche->getlocation()<<endl;
+    
 }
 
 #endif

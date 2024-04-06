@@ -6,7 +6,7 @@ using namespace std;
 #include <vector>
 #include<map>
 #include"..\Classes\JobOffers.h"
-#include <bits/stdc++.h>
+#include <iostream>
 class placement{
     //vector<string> package_offered;
     int avgpackage;
@@ -66,18 +66,18 @@ void setPlaced(int placed) {
 friend void max_package(std::map<long, JobOffer*>&j);
 friend void mean_package(std::map<long,JobOffer*>&j);
 };
-void max_package(map<long, JobOffer*>&j) {
+void max_package(map<string, JobOffer*>&j) {
     int max = 0;
     for (auto i = j.begin(); i != j.end(); i++) {
         if (i->second->getpackage() > max)
             max = i->second->getpackage();
             }
 
-            cout << "Highest Package is :" << max << endl;
+            cout << "Highest Package is : " << max << "LPA"<< endl;
     }
 
 
-void mean_package(map<long,JobOffer*>& j){
+void mean_package(map<string,JobOffer*>& j){
     double sum=0;
     int count = 0;
     for (auto i = j.begin(); i != j.end(); i++) {
@@ -85,7 +85,7 @@ void mean_package(map<long,JobOffer*>& j){
         count++;
     }
         int mean = sum/count;
-        cout << "The mean package this year is: " << mean << endl;
+        cout << "The mean package this year is: " << mean << "LPA" << endl;
 }
 
 
