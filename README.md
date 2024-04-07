@@ -1,24 +1,39 @@
 #Placement manager policy
 <br>
-Author-
+Authors-
 <br>
-RUDRA CHAUHAN
+Rudra Chauhan
 <br>
-KARTIK VYAS
+Kartik Vyas
 <br>
-POORVA VAISHNAV
+Poorva Vaishnav
 <br>
-KASAK SUTARIA
+Kasak Sutaria
 <br>
-CONTRIBUTION - 
-Rudra Chauhan : 
-Header Files - JobOffers.h , internship.h , 
+<br>
+<br>
+CONTRIBUTION:-
+<br>
+Rudra Chauhan :
+<br>
+Header Files - JobOffers.h , internship.h 
+<br>
 Kartik Vyas : 
+<br>
 Header Files - placement.h , schedule.h 
+<br>
 CSV Files - JobOffers.csv , Company.csv  , student_2022(batch).csv , student_2023(batch).csv , Internship.csv 
+<br>
 Poorva Vaishnav :
+<br>
 Header Files - past_details.h , file_reader.h
+<br>
 Kasak Sutaria : 
+<br>
 Header Files - student.h , company.h 
+<br>
 CSV Files - JobOffers.csv , student_2020(batch).csv , student_2021(batch).csv , schedule.csv
-Thank you for visiting 
+<br>
+<br>
+<br>
+Thank you for visiting!!!
