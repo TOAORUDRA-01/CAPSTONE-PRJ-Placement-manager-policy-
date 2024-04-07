@@ -1,6 +1,7 @@
 #ifndef PAST_DETAILS_H
 #define PAST_DETAILS_H
 #include<iostream>
+#include<algorithm>
 #include <fstream>
 #include<map>
 #include"..\Utilities\display.h"
