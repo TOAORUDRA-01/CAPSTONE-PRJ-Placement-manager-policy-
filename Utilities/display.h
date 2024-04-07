@@ -171,6 +171,7 @@ void  batchwise_placement_details(map<string,JobOffer*> j){
         case 4:
         cout << "YOU OPTED FOR DETAILS RELATED TO THE STATUS OF PLACEMENT PROCESS OF A STUDENT:"<<endl;
         display_joboffers(jf,ID_NUMBER);
+        break;
     }
         
     }
