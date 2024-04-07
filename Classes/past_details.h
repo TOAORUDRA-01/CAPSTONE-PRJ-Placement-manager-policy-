@@ -2,6 +2,7 @@
 #define PAST_DETAILS_H
 #include<iostream>
 #include <fstream>
+#include<map>
 #include"..\Utilities\display.h"
 using namespace std;
 
@@ -68,6 +69,48 @@ cout << "\n"
      cout<<"\t\t\t-----------------------------------------------------------------------------------------------------------------"<<endl;
      cout<<"\n\n";
 }
+
+void past_mean(map<string,Alumni*> &a){
+     double sum=0;
+    int count = 0;
+    for (auto i = a.begin(); i != a.end(); i++) {
+        sum += i->second->salary;
+        count++;
+    }
+        int mean = sum/count;
+        cout << "The mean package this year is: " << mean << "LPA" << endl;
+}
+
+void past_median(map<string,Alumni*> &a){
+    int count = 0;
+    for (auto i = a.begin(); i != a.end(); i++) {
+        count++;
+    }
+    int k = 0;
+    int arr[count];
+    for(auto i = a.begin(); i != a.end(); i++){
+        arr[k] =i->second->salary;
+        k++;
+    }
+    sort(arr, arr+count-1);
+    if (count % 2 == 0){
+        int d = (arr[count/2]+arr[(count/2) + 1]);
+        cout  << "Median of the Packages is:  "<<d<<" LPA"<<endl;
+    }
+    else{
+        cout << "Median of the package is:  "<<arr[(count+1)/2]<<" LPA"<<endl;
+    }
+}
+
+void past_highest(map<string,Alumni*>& a){
+    int max = 0;
+    for (auto i = a.begin(); i != a.end(); i++) {
+        if (i->second->salary > max)
+            max = i->second->salary;
+            }
+
+            cout << "Highest Package is : " << max << "LPA"<< endl;
+}
 void tokenize_alumni(string s, map<string,Alumni*>& a){
     stringstream line(s);
     string temp;
@@ -90,7 +133,7 @@ void Past_details(int year){
     switch(year){
         case 2023:
         // Read Student file
-        fin.open("./Data/Student.csv");
+        fin.open("./Data/Student_2023(Batch).csv");
         getline(fin,line);
         fflush(stdin);
         while (getline(fin, line)) {
@@ -98,12 +141,11 @@ void Past_details(int year){
         }
         fin.close();
         fin.clear();
-        display_past_details(alumni);
         break;
         
         case 2022:
         // Read Student file
-        fin.open("./Data/Student.csv");
+        fin.open("./Data/Student_2022(Batch).csv");
         getline(fin,line);
         fflush(stdin);
         while (getline(fin, line)) {
@@ -111,12 +153,11 @@ void Past_details(int year){
         }
         fin.close();
         fin.clear();
-        display_past_details(alumni);
         break;
         
         case 2021:
         // Read Student file
-        fin.open("./Data/2021_Placement_Details.csv");
+        fin.open("./Data/Student_2021(Batch).csv");
         getline(fin,line);
         fflush(stdin);
         while (getline(fin, line)) {
@@ -124,12 +165,11 @@ void Past_details(int year){
         }
         fin.close();
         fin.clear();
-        display_past_details(alumni);
         break;
         
         case 2020:
         // Read Student file
-        fin.open("./Data/2020_Placement_Details.csv");
+        fin.open("./Data/Student_2020(Batch).csv");
         getline(fin,line);
         fflush(stdin);
         while (getline(fin, line)) {
@@ -137,10 +177,22 @@ void Past_details(int year){
         }
         fin.close();
         fin.clear();
-        display_past_details(alumni);
         break;
         
     }
+
+    cout << "ENTER 1 - TO DISPLAY DETAILS OF ALL ALUMNI:" << endl;
+    cout << "ENTER 2 - TO DISPLAY STATASTICS OF PARTICULAR YEAR" << endl;
+    int temp;cin >> temp;
+    if(temp == 1){
+        display_past_details(alumni);
+    }
+    else if(temp == 2){
+        past_mean(alumni);
+        past_median(alumni);
+        past_highest(alumni);
+    }
+
 }
 
 

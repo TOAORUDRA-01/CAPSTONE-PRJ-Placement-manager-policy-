@@ -138,7 +138,7 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
     fin.close();
     fin.clear();
 
-    fin.open("./Data/Schedule.csv.csv");
+    fin.open("./Data/Schedule.csv");
     getline(fin,line);
     fflush(stdin);
     while(getline(fin, line)){

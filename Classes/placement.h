@@ -18,9 +18,7 @@ class placement{
 
 //constructor
 placement( int &avgpackage, int &highestpackage, float rate_of_placement, int appeared, int placed){
-    // for(int i = 0;i<package_offered.size();i++){
-    //     this->package_offered = package_offered;
-    // }
+    
     this->avgpackage = avgpackage;
     this->highestpackage = highestpackage;
     this->rate_of_placement = rate_of_placement;
@@ -28,8 +26,7 @@ placement( int &avgpackage, int &highestpackage, float rate_of_placement, int ap
     this->placed = placed;
 }
     //getter
-// vector<string> getPackage_offered() const{
-//         return package_offered;}
+
 
 int getAvgpackage() const{
     return avgpackage;}
@@ -47,8 +44,6 @@ int getPlaced() const{
     return placed;}
 
 //setters
-// void setPackage_offered(const vector<string>& package) {
-//     package_offered = package;}
 
 void setAvgpackage(const int& avgpackage) {
      this->avgpackage = avgpackage;}
@@ -94,7 +89,6 @@ void median_package(map<string,JobOffer*>& j){
     for (auto i = j.begin(); i != j.end(); i++) {
         count++;
     }
-    //cout << count;
     int k = 0;
     int arr[count];
     for(auto i = j.begin(); i != j.end(); i++){
