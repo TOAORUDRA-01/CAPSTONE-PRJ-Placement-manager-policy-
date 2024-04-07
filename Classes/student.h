@@ -1,5 +1,4 @@
 #include <iostream>
-#include"..\Classes\internship.h"
 using namespace std;
 
 #ifndef STUDENT_H
