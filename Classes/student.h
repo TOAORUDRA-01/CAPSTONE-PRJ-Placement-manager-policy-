@@ -78,20 +78,22 @@ public:
     }
 
     // Other member functions
-    friend ostream &operator  <<(ostream &out, Student &student);
+friend void display_particularstudent(map<string,Student*>  &Students,string ID_NO);
 };
-ostream &operator  <<(ostream &out, Student &student)
+void display_particularstudent(map<string,Student*>  &Students,string ID_NO)
 {
-    out << "\t\t\t----------------------------------------------------------------------------"<<endl;
-    out << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
-    out << "  ID: " << student.id << endl;
-    out << "  Name: " << student.name << endl;
-    out << "  Year of Placement: " << student.yearOfPlacement << endl;
-    out << "  Program: " << student.program << endl;
-    out << "  CGPA: " << student.cgpa << endl;
-    out << "  Email Id : " << student.email << endl;
-    out << "  Phone Number : " << student.phone << endl;    
-    return out;
+    Student* s = Students[ID_NO];
+    cout << "\t\t\t----------------------------------------------------------------------------"<<endl;
+    cout << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
+    cout << "\t\t\t  ID: " << ID_NO << endl;
+    cout << "\t\t\t  Name: " << s->name << endl;
+    cout << "\t\t\t  Year of Placement: " << s->yearOfPlacement << endl;
+    cout << "\t\t\t  Program: " << s->program << endl;
+    cout << "\t\t\t  CGPA: " << s->cgpa << endl;
+    cout << "\t\t\t  Email Id : " << s->email << endl;
+    cout << "\t\t\t  Phone Number : " << s->phone << endl;    
+    
+    cout<<"\t\t\t----------------------------------------------------------------------------"<<endl;
 }
 
 #endif

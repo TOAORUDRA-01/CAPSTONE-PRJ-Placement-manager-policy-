@@ -6,80 +6,41 @@ using namespace std;
 #define Internship_H
 
 class Internship{
-        private:
-        string name;
-        string duration;
-        string type;
+       public:
+        string cmpname1,cmpname2;
+        string duration1,duration2;
+        string type1,type2;
         string sr_no;
         string stdname;  //student name who is doing internship
         
-        public:
        vector<Internship> internships;
-        Internship(string stdname,string name, string duration, string type) {
-        this->name = name;
+        Internship(string stdname,string cmpname1, string duration1, string type1,string cmpname2, string duration2, string type2) {
+        this->cmpname1 = cmpname1;
+        this->cmpname2 = cmpname2;
        // this->sr_no = sr_no;
         this->stdname = stdname;
-        this->duration = duration;
-        this->type = type;
+        this->duration1 = duration1;
+        this->type1 = type1;
+        this->duration2 = duration2;
+        this->type2 = type2;
     }
-
-    //getting or setting internships
-    void add_internships()
-    {
-
-        bool flag = true;
-        string name, type,stdname; 
-        string sr_no;
-        string duration ;
-        char c;
-        cout << "  Enter the internship details which you want to add:" << endl;
-
-        while (flag)
-        {
-            // cout << "  Enter the sr no: ";
-            // cin >> sr_no;
-            cout << "  Enter the internship name: ";
-            cin >> name;
-            cout << "  Enter the internship type: ";
-            cin >> type;
-            cout << "  Enter the duration of internship: ";
-            cin >> duration;
-            cout << "  Do you want to add more internships? (y/n): ";
-            cin >> c;
-            Internship *inter = new Internship(stdname,name,duration,type);
-            internships.push_back(*inter);
-            if (c == 'n')
-            {
-                flag = false;
-            }
-        }
-    }
-
     
-    void show_internship(){
-        cout << "\t\t\t\t\t\tINTERNSHIP DETAILS:" << endl;
-        cout << "\n\t\tName \t\t\t\t\t\t Duration(in weeks) \t\t\t\t\t\t Type" << endl;
-        cout << "---------------------------------------------------------------------------------------------------" << endl;
-int index = 0;
-        for(int i = 0; i<internships.size();i++){
-            cout << index++ << "||" << "\t\t" << internships[i].name << "\t\t\t\t\t\t" << internships[i].duration << "\t\t\t\t\t\t" << internships[i].type  << endl;  
-        }
-    }
-    friend class Student;
-    friend void display_internship(map<string,vector<Internship>> inter,vector<Internship>& internship,string ID);
-    
-    
+    friend void display_internship(map<string,Internship*>&inter,string ID_NUMBER);
     
 }; 
-// void display_internship(map<string,vector<Internship>> inter,vector<Internship>& internship,string ID){
-//    cout<<"\t || INTERNSHIP DETAILS ||"<<endl;
-//    vector<Internship> in_ship = inter[ID];
-//    for(int i; i<internship.size();)
-//    { 
-//     cout<<"Name of Internship: "<<in_ship<<endl;
-//     cout<<"Duration: "<<internship[i++]<<endl;
-//     cout<<"Type: "<<internship[i++]<<endl;
-//     }
-// }
+void display_internship(map<string,Internship*>&inter,string ID_NUMBER){
+    Internship* s = inter[ID_NUMBER];
+    cout << "\t\t\t----------------------------------------------------------------------------"<<endl;
+    cout << "\t\t\t\t\t\t|| INTERNSHIP DETAILS ||" << endl<<endl;
+    cout << "\t\t\t  ID: " << ID_NUMBER << endl;
+    cout << "\t\t\t  COMPANY Name 1: " << s->cmpname1 << endl;
+    cout << "\t\t\t  DURATION1: " << s->duration1 << endl;
+    cout << "\t\t\t  TYPE1: " << s->type1 << endl;
+    cout << "\t\t\t  COMPANY NAME 2: " << s->cmpname2 << endl;
+    cout << "\t\t\t  DURATION 2 : " << s->duration2 << endl;
+    cout << "\t\t\t  TYPE 2 : " << s->type2 << endl;    
+    
+    cout<<"\t\t\t----------------------------------------------------------------------------"<<endl;
+}
 
 #endif 

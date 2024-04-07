@@ -14,6 +14,7 @@ using namespace std;
 #include"student.h"
 #include"internship.h"
 #include"JobOffers.h"
+#include"..\Classes\past_details.h"
 
 void tokenize_student(string s,map<string,Student*> &ms){
     stringstream line(s);
@@ -43,25 +44,21 @@ void tokenize_company(string s, vector<company>& data){
 }
 
 //tokenizing internship file
-// void tokenize_internship(string s, map<string,vector<Internship>>& mr,vector<Internship>& data){
-//     string temp;
-//     stringstream line(s);
-//     vector<string> i_row_info;
+void tokenize_internship(string s, map<string,Internship*>& mr){
+    string temp;
+    stringstream line(s);
+    vector<string> i_row_info;
     
 
-//     while(getline(line,temp,',')){
-//         i_row_info.push_back(temp);
+    while(getline(line, temp, ',')) {
+        i_row_info.push_back(temp);
+    }
 
-//     }
+    Internship* data = new Internship(i_row_info[1],i_row_info[2],i_row_info[3],i_row_info[4],i_row_info[5],i_row_info[6],i_row_info[7]); 
 
-//     for (int i = 1; i<= i_row_info.size();){
-//         Internship* inter = new Internship(i_row_info[i++],i_row_info[i++],i_row_info[i++],i_row_info[i++]);
+    mr[i_row_info[0]] = data;
 
-//         data.push_back(*inter);
-//         }
-//         mr[i_row_info[0]] = data;
-
-//}
+}
 void tokenizing_schedule(string s,map<string,Schedule*>&data){
     string temp;
     stringstream line(s);
@@ -88,20 +85,10 @@ void tokenize_jobOffers(string s, map<string,JobOffer*>& mj) {
     mj[j_row[0]] = job;
 }
 
-// void tokenize_schedule(string s,map<string,Schedule*>& schedule){
-//     string temp;
-//     stringstream line(s);
-//     vector<string> j_row;
 
-//     while(getline(line,temp,',')){
-//         j_row.push_back(temp);
-// }
 
-//     Schedule* job = new Schedule(j_row[1],j_row[2],j_row[3],j_row[4],j_row[5],j_row[6]);
-//     schedule[j_row[0]] = job;
-// }
 
-void read_file(map<string,Student*> &students, vector<company> &companies, map<string,vector<Internship>>& internships, map<string,Schedule*>& schedule, map<string,JobOffer*>& jobOffers, vector<Internship>& data) {
+void read_file(map<string,Student*> &students, vector<company> &companies, map<string,Internship*>& internships, map<string,Schedule*>& schedule, map<string,JobOffer*>& jobOffers) {
     ifstream fin;
     string line;
 
@@ -130,14 +117,16 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
     fin.clear();
 
     //Read Internship file
-    // fin.open("./Data/Internship.csv");
-    // while (getline(fin, line)) {
-    //     tokenize_internship(line, internships, data);
-    // }
-    // fin.close();
+    fin.open("./Data/Internship.csv");
+    getline(fin,line);
+    fflush(stdin);
+    while (getline(fin, line)) {
+        tokenize_internship(line, internships);
+    }
+    fin.close();
 
-    // // Clear end-of-file flag
-    // fin.clear();
+    // Clear end-of-file flag
+    fin.clear();
 
     //Read JobOffer file
     fin.open("./Data/JobOffer.csv");
@@ -149,7 +138,7 @@ void read_file(map<string,Student*> &students, vector<company> &companies, map<s
     fin.close();
     fin.clear();
 
-    fin.open("./Data/Schedule.csv");
+    fin.open("./Data/Schedule.csv.csv");
     getline(fin,line);
     fflush(stdin);
     while(getline(fin, line)){

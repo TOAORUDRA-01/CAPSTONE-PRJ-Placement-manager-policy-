@@ -13,11 +13,11 @@ int main(){
     map<string,Schedule*>schedule;
     map<string, JobOffer*> Joboffers;
     vector<company> company;
-    map<string,vector<Internship>> internships;
-    vector<Internship>inter;
+    map<string,Internship*> internships;
+    
 
-    read_file(students,company, internships, schedule,Joboffers,inter);
-    display(students,company,internships,schedule,Joboffers,inter);
+    read_file(students,company, internships, schedule,Joboffers);
+    display(students,company,internships,schedule,Joboffers);
     
     
 return 0;

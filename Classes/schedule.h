@@ -3,10 +3,10 @@
 #include <iostream>
 using namespace std;
 class Schedule{
+        public:
     string id; string stdname,cmpname;//unordered_map<int, string> status = {{0,"Complete"}, {1,"Fail"}}; //for interview
     string s_time, e_time,date,location; //the timings for interview of individuals
 
-    public:
     Schedule(string name,string cmpname,string date,string s_time, string e_time,string location){
         
         this->stdname = name;
@@ -71,18 +71,22 @@ class Schedule{
 friend void display_schedule(string ID, map<string,Schedule*>& j);
 };
 
-void display_schedule(string ID, map<string,Schedule*>& s)
-{
-    Schedule* sche = s[ID];
-    cout<<"\t || SCHEDULE ||"<<endl;
-    cout<<"Student ID:  "<<sche->getid()<<endl;
-    cout<<"Student Name:  "<<sche->getstdname()<<endl;
-    cout<<"Start Time:  "<<sche->get_stime()<<endl;
-    cout<<"End Time:  "<<sche->get_etime()<<endl;
-    cout<<"Date of Interview:  "<<sche->getdate()<<endl;
-    cout<<"Company Name:  "<<sche->getcmpname()<<endl;
-    cout<<"Room No. :  "<<sche->getlocation()<<endl;
+void display_schedule(string ID, map<string,Schedule*>& schedule)
+{    Schedule* sche = schedule[ID];
+    cout<<"\t\t\t\t\t || SCHEDULE ||"<<endl;
+    cout << "\t\t\t----------------------------------------------------------------------------"<<endl;
+
+    cout<<"\t\t\tStudent ID:  "<<ID<<endl;
+    cout<<"\t\t\tStudent Name:  "<<sche->stdname << endl;
+    cout<<"\t\t\tStart Time:  "<<sche->s_time<<endl;
+    cout<<"\t\t\tEnd Time:  "<<sche->e_time<<endl;
+    cout<<"\t\t\tDate of Interview:  "<<sche->date<<endl;
+    cout<<"\t\t\tCompany Name:  "<<sche->cmpname<<endl;
+    cout<<"\t\t\tRoom No. :  "<<sche->location<<endl;
+    cout << "\t\t\t----------------------------------------------------------------------------"<<endl;
+
     
 }
+
 
 #endif

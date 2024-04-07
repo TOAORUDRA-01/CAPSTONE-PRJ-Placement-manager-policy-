@@ -5,8 +5,9 @@ using namespace std;
 #include <string>
 #include <vector>
 #include<map>
+#include<algorithm>
 #include"..\Classes\JobOffers.h"
-#include <iostream>
+
 class placement{
     //vector<string> package_offered;
     int avgpackage;
@@ -65,6 +66,7 @@ void setPlaced(int placed) {
     this->placed = placed;}
 friend void max_package(std::map<long, JobOffer*>&j);
 friend void mean_package(std::map<long,JobOffer*>&j);
+friend void median_package(map<string,JobOffer*>& j);
 };
 void max_package(map<string, JobOffer*>&j) {
     int max = 0;
@@ -87,6 +89,30 @@ void mean_package(map<string,JobOffer*>& j){
         int mean = sum/count;
         cout << "The mean package this year is: " << mean << "LPA" << endl;
 }
+void median_package(map<string,JobOffer*>& j){
+    int count = 0;
+    for (auto i = j.begin(); i != j.end(); i++) {
+        count++;
+    }
+    //cout << count;
+    int k = 0;
+    int arr[count];
+    for(auto i = j.begin(); i != j.end(); i++){
+        arr[k] =i->second->getpackage();
+        k++;
+    }
+    sort(arr, arr+count-1);
+    if (count % 2 == 0){
+        int d = (arr[count/2]+arr[(count/2) + 1]);
+        cout  << "Median of the Packages is:  "<<d<<" LPA"<<endl;
+    }
+    else{
+        cout << "Median of the package is:  "<<arr[(count+1)/2]<<" LPA"<<endl;
+    }
+    
+}
+
+
 
 
 #endif

@@ -66,27 +66,12 @@ cout << "\n"
      cout<<"\n\n";
 }
 
-void display_particularstudent(map<string,Student*>  &Students,string ID_NO)
-{
-    Student* s = Students[ID_NO];
-    cout << "\t\t\t----------------------------------------------------------------------------"<<endl;
-    cout << "\t\t\t\t\t\t|| STUDENT DETAILS ||" << endl<<endl;
-    cout << "\t\t\t  ID: " << ID_NO << endl;
-    cout << "\t\t\t  Name: " << s->name << endl;
-    cout << "\t\t\t  Year of Placement: " << s->yearOfPlacement << endl;
-    cout << "\t\t\t  Program: " << s->program << endl;
-    cout << "\t\t\t  CGPA: " << s->cgpa << endl;
-    cout << "\t\t\t  Email Id : " << s->email << endl;
-    cout << "\t\t\t  Phone Number : " << s->phone << endl;    
-    
-    cout<<"\t\t\t----------------------------------------------------------------------------"<<endl;
-}
-
 
 void company_based_details(map<string,JobOffer*>&j){
+     string company;
     cout << "Enter the company name:" ;
-    string company;
-    cin >> company;
+    cin.ignore();
+    getline(cin, company);
     cout << "The students placed in " << company << " are:" << endl;
     cout << "\t\t\t|";
     cout.width(10);
@@ -99,7 +84,7 @@ void company_based_details(map<string,JobOffer*>&j){
      cout  << endl;
     
     for( auto i = j.begin(); i != j.end(); i++ ){
-        if(i->second->getCompanyName() == company){  
+        if(i->second->companyName == company){  
             cout << "\t\t\t|";
     cout.width(10);
      cout << i->first << "\t|";
@@ -113,9 +98,6 @@ void company_based_details(map<string,JobOffer*>&j){
     }
 }
 
-void location_based_details(map<string,JobOffer*>& j){
-
-}
 
 void  batchwise_placement_details(map<string,JobOffer*> j){
    string  b;
@@ -150,7 +132,7 @@ void  batchwise_placement_details(map<string,JobOffer*> j){
             cout << endl;     
            }
     }
-}void display_choice1(int choice1,map<string,Student*>&students,map<string,vector<Internship>>& internships,map<string,Schedule*>& schedule,vector<Internship>&data)
+}void display_choice1(int choice1,map<string,Student*>&students,map<string,Internship*>& internships,map<string,Schedule*>& schedule,map<string,JobOffer*>& jf)
 {
     if(choice1 == 1)
     {
@@ -163,30 +145,32 @@ void  batchwise_placement_details(map<string,JobOffer*> j){
         cout<<"ENTER 1 - MY DETAILS"<<endl;
         cout<<"ENTER 2 - INTERNSHIP DETAILS"<<endl;
         cout<<"ENTER 3 - SCHEDULE DETAILS"<<endl;
+        cout<<"ENTER 4 - PLACEMENT PROCESS STATUS" << endl;
         int ch;
         cout << "Enter your choice: ";
         cin >> ch;
         cout << "Enter the ID no:" ;
         string ID_NUMBER;
-        cin >> ID_NUMBER;{}
-        if(ch == 1)
-        {
+        cin >> ID_NUMBER;
+        switch(ch){
+        case 1:
             cout<< "YOU OPTED TO VIEW DETAILS OF A PARTICULAR STUDENT."<< endl;
-            
             display_particularstudent(students, ID_NUMBER);
-        }
-        else{ if(ch == 2)
-        {
+            break;
+        case 2:
             cout<< "YOU OPTED TO VIEW INTERNSHIP DETAILS:"<<endl;
-            //isplay_internships();
-        }
-    
-    else if(choice1 == 3)
-    {
+           
+            display_internship(internships,ID_NUMBER);
+            break;
+        case 3:
         cout<<"YOU OPTED TO VIEW SCHEDULE DETAILS:"<<endl;
         display_schedule(ID_NUMBER,schedule);
+        break;
+        case 4:
+        cout << "YOU OPTED FOR DETAILS RELATED TO THE STATUS OF PLACEMENT PROCESS OF A STUDENT:"<<endl;
+        display_joboffers(jf,ID_NUMBER);
     }
-        }
+        
     }
 }
 void display_allcompany(vector<company> &company)
@@ -209,14 +193,14 @@ void display_allcompany(vector<company> &company)
     cout.width(15);
     cout<<"| PRESENT_AT_CAMPUS"<<"|";
     cout<<endl;
-    cout<<"\\\\\\---------------------------------------------------------------------------------------------//////";
+    cout<<"\t\t\\\\\\\\\\\\---------------------------------------------------------------------------------------------//////";
     cout << endl;
     int index = 1;
         for(auto company : company)
         {
             cout<<"\t\t";
-            cout.width(8);
-            cout<<"|  "<<index++<<" |";
+            // cout.width(8);
+            // cout<<"|  "<<index++<<" |";
             cout.width(12);
             cout<< company.cmpname<<"|";
             cout.width(20);
@@ -233,7 +217,7 @@ void display_allcompany(vector<company> &company)
             cout<< company.at_college<<"|\n";
         }
 }
-void display_choice2(int choice2,map<string,JobOffer*> j)
+void display_choice2(int choice2,map<string,JobOffer*> j,map<string,Student*> &student)
 {
     switch(choice2)
     {
@@ -252,7 +236,15 @@ void display_choice2(int choice2,map<string,JobOffer*> j)
             cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS BASED ON STATISTICS:"<<endl;
             max_package(j) ;
             mean_package(j);
+            median_package(j);
             break;
+        case 4:
+        int year;
+        cout << "YOU OPTED TO VIEW THE PAST PLACEMENT DETAILS" << endl;
+        cout << "ENTER THE YEAR(YYYY FORMAT):- ";
+        cin >> year;
+        Past_details(year);
+        break;
         
         // default:
         //     cout<<"LOCATION WISE:"<<endl;
@@ -261,7 +253,7 @@ void display_choice2(int choice2,map<string,JobOffer*> j)
     }
 }
 
-void display_choice(int choice,map<string,Student*> &students,vector<company> &company,map<string,vector<Internship>>& internships,map<string,Schedule*>& schedule,map<string,JobOffer*>& jf,vector<Internship>&data)
+void display_choice(int choice,map<string,Student*> &students,vector<company> &company,map<string,Internship*>& internships,map<string,Schedule*>& schedule,map<string,JobOffer*>& jf)
 {
     switch (choice)
     {
@@ -271,19 +263,20 @@ void display_choice(int choice,map<string,Student*> &students,vector<company> &c
         cout<<"ENTER 2 - IF YOU WANT TO VIEW DETAIL OF A PARTICULAR STUDENT."<<endl;
         int choice1;
         cin >> choice1;
-        display_choice1(choice1,students,internships,schedule,data);
+        display_choice1(choice1,students,internships,schedule,jf);
         break;
     case 2:
         cout<<"YOU OPTED TO VIEW THE PLACEMENT DETAILS:"<<endl;
-        cout << "ENTER 1 = TO DISPLAY PLACEMENT DETAILS BASED ON COMPANY NAME:"<<endl;
-        cout << "ENTER 2 = TO DISPLAY PLACEMENT DETAILS BATCHWISE:"<<endl;
-        cout << "ENTER 3 = TO DISPLAY PLACEMENT STATISTICS:"<<endl;
+        cout << "ENTER 1 = TO DISPLAY" << BOLD <<" CURRENT " << RESET <<"PLACEMENT DETAILS BASED ON COMPANY NAME:"<<endl;
+        cout << "ENTER 2 = TO DISPLAY" << BOLD <<" CURRENT " << RESET <<" PLACEMENT DETAILS BATCHWISE:"<<endl;
+        cout << "ENTER 3 = TO DISPLAY" << BOLD <<" CURRENT " << RESET <<" PLACEMENT STATISTICS:"<<endl;
+        cout << "ENTER 4 - TO DISPLAY" << BOLD <<" PAST " << RESET <<" PLACEMENT DETAILS." << endl;
        // cout << "ENTER 4 = TO DISPLAY PLACEMENT DETAILS LOCATION WISE:"<<endl;
 
 
         int choice2;
         cin >> choice2;
-        display_choice2(choice2,jf);
+        display_choice2(choice2,jf,students);
         break;
     
     case 3:
@@ -301,15 +294,15 @@ void display_choice(int choice,map<string,Student*> &students,vector<company> &c
 }
 
 
-void display(map<string,Student*> &students,vector<company> &company,map<string,vector<Internship>>& internships,map<string,Schedule*>& schedule,map<string,JobOffer*>& jf,vector<Internship>&data)
+void display(map<string,Student*> &students,vector<company> &company,map<string,Internship*>& internships,map<string,Schedule*>& schedule,map<string,JobOffer*>& jf)
 {
     
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
-    cout<<"Enter 2 to display the past placement program details"<<endl;
+    cout<<"Enter 2 to display the  placement program details"<<endl;
     cout << "Enter 3 to display company details." << endl;
     cout<<BOLD<<"ENTER YOUR CHOICE:"<<RESET;
     int c; cin >> c;
-    display_choice(c,students,company,internships,schedule,jf,data);
+    display_choice(c,students,company,internships,schedule,jf);
 }
 
 #endif
