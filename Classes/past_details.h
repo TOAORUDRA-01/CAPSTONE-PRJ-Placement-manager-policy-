@@ -6,9 +6,6 @@
 #include<map>
 #include"..\Utilities\display.h"
 using namespace std;
-
-#include"..\Classes\file_reader.h"
-
 class Alumni{
      public:
     string id,name,phone,cmpname,branch;
