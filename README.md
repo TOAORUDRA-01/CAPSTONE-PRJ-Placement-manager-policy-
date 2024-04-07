@@ -16,7 +16,7 @@ CONTRIBUTION:-
 <br>
 Rudra Chauhan :
 <br>
-Header Files - JobOffers.h , internship.h 
+Header Files - JobOffers.h , internship.h , display.h
 <br>
 <br>
 Kartik Vyas : 
@@ -36,6 +36,8 @@ Kasak Sutaria :
 Header Files - student.h , company.h 
 <br>
 CSV Files - JobOffers.csv , student_2020(batch).csv , student_2021(batch).csv , schedule.csv , Internship.csv
+<br>
+Other respective minor changes by all . 
 <br>
 <br>
 Thank you for visiting!!!
