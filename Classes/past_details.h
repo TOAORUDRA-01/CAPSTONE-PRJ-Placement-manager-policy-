@@ -22,7 +22,7 @@ class Alumni{
     }
 };
 void display_past_details(map<string,Alumni*>& alumni) {
-    cout << "\t\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
+    cout << "\t\t\t\t\t\t\t\t  || LIST OF STUDENTS ||\n"<< endl;
     //  cout.width(10);
     //  cout << "\t\t\t| Serial No."<< "|";
     cout << "\t\t\t|";
