@@ -13,7 +13,7 @@ class Internship{
         string sr_no;
         string stdname;  //student name who is doing internship
         
-       vector<Internship> internships;
+      
         Internship(string stdname,string cmpname1, string duration1, string type1,string cmpname2, string duration2, string type2) {
         this->cmpname1 = cmpname1;
         this->cmpname2 = cmpname2;
