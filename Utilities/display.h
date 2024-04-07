@@ -201,47 +201,20 @@ void  batchwise_placement_details(map<string,JobOffer*> j){
 }
 void display_allcompany(vector<company> &company)
 {
-    cout << "\n\t\t\t\t\t\t  LIST OF COMPANY\n";
-    cout.width(6);
-    cout<<"\t\t| SERIAL.NO"<<"|";
-    cout.width(15);
-    cout<<" COMPANY NAME"<<"|";
-    cout.width(20);
-    cout<<" ADDRESS OF COMPANY"<<"|";
-    cout.width(7);
-    cout<<" PACKAGE"<<"|";
-    cout.width(10);
-    cout<<" HIRED_STUDENTS"<<"|";
-    cout.width(7);
-    cout<<" CRITERIA"<<"|";
-    cout.width(11);
-    cout<<" NO. OF ALUMNI"<<"|";
-    cout.width(15);
-    cout<<" PRESENT_AT_CAMPUS"<<"|";
-    cout<<endl;
-    cout<<"\t\t\\\\\\\\\\\\---------------------------------------------------------------------------------------------//////";
-    cout << endl;
-    int index = 1;
-        for(auto company : company)
-        {
-            cout<<"\t\t";
-            // cout.width(8);
-            // cout<<"|  "<<index++<<" |";
-            cout.width(15);
-            cout<<company.cmpname<<"|";
-            cout.width(20);
-            cout<<company.cmpaddress<<"|";
-            cout.width(7);
-            cout<<company.package<<"|";
-            cout.width(10);
-            cout<<company.hiredstudents<<"|";
-            cout.width(7);
-            cout<<company.criteria<<"|";
-            cout.width(11);
-            cout<<company.no_of_alumni<<"|";
-            cout.width(15);
-            cout<<company.at_college<<"|\n";
-        }
+    cout << "\n\t\t\t----------------------------------------------------------------------------"<<endl;
+    cout << "\t\t\t\t\t\t|| COMPANY DETAILS ||" << endl<<endl;
+    for(int i = 1; i<=company.size();i++){
+    cout << "\t\t\t  SERIAL NO.: " << i << endl;
+    cout << "\t\t\t  COMPANY NAME: " <<BOLD << company[i].cmpname << RESET << endl;
+    cout << "\t\t\t  ADDRESS OF COMPANY: " << company[i].cmpaddress << endl;
+    cout << "\t\t\t  PACKAGE OFFERED: " << company[i].getpackage() << endl;
+    cout << "\t\t\t  HIRED_STUDENTS: " << company[i].gethiredstudents() << endl;
+    cout << "\t\t\t  CRITERIA : " << company[i].criteria << endl;
+    cout << "\t\t\t  ALUMNI NO : " << company[i].getno_of_alumni() << endl; 
+    cout << "\t\t\t  AT_CAMPUS STATUS : " << company[i].at_college << endl;   
+    
+    cout<<"\t\t\t----------------------------------------------------------------------------"<<endl;
+    }
 }
 void display_choice2(int choice2,map<string,JobOffer*> j,map<string,Student*> &student)
 {
