@@ -195,16 +195,11 @@ void display_allcompany(vector<company> &company)
     cout.width(15);
     cout<<" PRESENT_AT_CAMPUS"<<"|";
     cout<<endl;
-<<<<<<< HEAD
     cout<<"\t\t\\\\\\\\\\\\---------------------------------------------------------------------------------------------//////";
-=======
-    cout<<"\\\\\\\\\\\\---------------------------------------------------------------------------------------------//////";
->>>>>>> 35144cbf28e79d1ceabc24e9de000452d3e38016
     cout << endl;
     int index = 1;
         for(auto company : company)
         {
-<<<<<<< HEAD
             cout<<"\t\t";
             // cout.width(8);
             // cout<<"|  "<<index++<<" |";
@@ -220,11 +215,6 @@ void display_allcompany(vector<company> &company)
             cout<< company.criteria<<"|";
             cout.width(11);
             cout<< company.no_of_alumni<<"|";
-=======
-            cout<<"\t";
-            cout.width(6);
-            cout<<"|"<<index++<<" |";
->>>>>>> 35144cbf28e79d1ceabc24e9de000452d3e38016
             cout.width(15);
             cout<<company.cmpname<<"|";
             cout.width(20);
@@ -322,13 +312,8 @@ void display(map<string,Student*> &students,vector<company> &company,map<string,
 {
     
     cout<<"Enter 1 to display ongoing process of placement"<<endl;
-<<<<<<< HEAD
     cout<<"Enter 2 to display the  placement program details"<<endl;
     cout << "Enter 3 to display company details." << endl;
-=======
-    cout<<"Enter 2 to display the past placement program details"<<endl;
-    cout<<"Enter 3 to display company details." << endl;
->>>>>>> 35144cbf28e79d1ceabc24e9de000452d3e38016
     cout<<BOLD<<"ENTER YOUR CHOICE:"<<RESET;
     int c; cin >> c;
     display_choice(c,students,company,internships,schedule,jf);
