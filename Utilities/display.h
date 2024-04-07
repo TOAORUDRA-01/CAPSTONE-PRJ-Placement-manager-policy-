@@ -22,14 +22,14 @@ void display_allstudents(map<string, Student*> &Student)
     cout.width(10);
      cout << "ID"<< "\t|";
      cout.width(12);
-     cout << "Name"<< "   \t|";
+     cout << "Name"<< "   |";
      
      cout.width(8);
      cout << "Branch"<<"\t|";
      cout.width(15);
-     cout << "CGPA"<<"\t|";
+     cout << "\t\t    CGPA"<<"\t\t\t|";
      cout.width(6);
-     cout << "Year"<<"\t|" ;
+     cout << "Year"<<"\t\t|" ;
      cout << endl;
      cout<<"\t\t\t-----------------------------------------------------------------------------------------------------------------"<<endl;
     // /int index = 0;
@@ -204,18 +204,6 @@ void display_allcompany(vector<company> &company)
             cout<<"\t\t";
             // cout.width(8);
             // cout<<"|  "<<index++<<" |";
-            cout.width(12);
-            cout<< company.cmpname<<"|";
-            cout.width(20);
-            cout<< company.cmpaddress<<"|";
-            cout.width(7);
-            cout<< company.package<<"|";
-            cout.width(10);
-            cout<< company.hiredstudents<<"|";
-            cout.width(7);
-            cout<< company.criteria<<"|";
-            cout.width(11);
-            cout<< company.no_of_alumni<<"|";
             cout.width(15);
             cout<<company.cmpname<<"|";
             cout.width(20);

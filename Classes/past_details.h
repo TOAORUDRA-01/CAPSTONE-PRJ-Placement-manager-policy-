@@ -30,18 +30,17 @@ void display_past_details(map<string,Alumni*>& alumni) {
     cout.width(10);
      cout << "ID"<< "\t|";
      cout.width(12);
-     cout << "Name"<< "   \t|";
+     cout << "Name"<< "   |";
      cout.width(8);
      cout << "Branch"<<"\t|";
      cout.width(6);
-     cout << "Year"<<"\t|" ;
+     cout << "Year"<<"  \t|" ;
      cout.width(15);
      cout << "MOBILE NO."<<"\t|";
       cout.width(13);
      cout << "COMPANY PLACED"<<"\t|" ;
      cout.width(9);
-     cout << "SALARY"<<"\t|";
-     
+     cout << "SALARY"<<"\t|"; 
      cout << endl;
      cout<<"\t\t\t-----------------------------------------------------------------------------------------------------------------"<<endl;
     // /int index = 0;
