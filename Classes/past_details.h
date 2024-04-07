@@ -82,24 +82,49 @@ void past_mean(map<string,Alumni*> &a){
 }
 
 void past_median(map<string,Alumni*> &a){
-    int count = 0;
-    for (auto i = a.begin(); i != a.end(); i++) {
-        count++;
-    }
-    int k = 0;
-    int arr[count];
+    vector <int> v;
     for(auto i = a.begin(); i != a.end(); i++){
-        arr[k] =i->second->salary;
-        k++;
+        v.push_back(i->second->salary);
     }
-    sort(arr, arr+count-1);
-    if (count % 2 == 0){
-        int d = (arr[count/2]+arr[(count/2) + 1]);
-        cout  << "Median of the Packages is:  "<<d<<" LPA"<<endl;
+    // cout << "Before sorting :";
+    // for(int i = 0 ; i < v.size() ; i++){
+    //     cout << v[i] << "  ";
+    // }
+    // cout << endl;
+
+    sort(v.begin(),v.end());
+    // cout << "After Sorting :";
+    // for(int i = 0 ; i < v.size() ; i++ ) {
+    //     cout << v[i] << "  ";
+    // }
+
+    int l = v.size();
+    if(v.size()%2==0){
+        float d = (v[(l/2)-1] + v[(l/2 + 1)-1])/2.0;
+        cout << "\nMedian is : " << d << " LPA" << endl;
     }
     else{
-        cout << "Median of the package is:  "<<arr[(count+1)/2]<<" LPA"<<endl;
+        float d = v[((l+1)/2)-1];
+        cout << "\nMedian is : " << d << " LPA" << endl;
     }
+    // int count = 0;
+    // for (auto i = a.begin(); i != a.end(); i++) {
+    //     count++;
+    // }
+    // int k = 0;
+    // int arr[count];
+    // for(auto i = a.begin(); i != a.end(); i++){
+    //     arr[k] =i->second->salary;
+    //     k++;
+    // }
+    // sort(arr, arr+count-1);
+    // if (count % 2 == 0){
+    //     int d = (arr[count/2]+arr[(count/2) + 1]);
+    //     cout  << "Median of the Packages is:  "<<d<<" LPA"<<endl;
+    // }
+    // else{
+    //     cout << "Median of the package is:  "<<arr[(count+1)/2]<<" LPA"<<endl;
+    // }
 }
 
 void past_highest(map<string,Alumni*>& a){
