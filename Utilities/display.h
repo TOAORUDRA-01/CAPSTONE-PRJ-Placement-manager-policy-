@@ -203,7 +203,7 @@ void display_allcompany(vector<company> &company)
 {
     cout << "\n\t\t\t----------------------------------------------------------------------------"<<endl;
     cout << "\t\t\t\t\t\t|| COMPANY DETAILS ||" << endl<<endl;
-    for(int i = 1; i<=company.size();i++){
+    for(int i = 1; i<company.size();i++){
     cout << "\t\t\t  SERIAL NO.: " << i << endl;
     cout << "\t\t\t  COMPANY NAME: " <<BOLD << company[i].cmpname << RESET << endl;
     cout << "\t\t\t  ADDRESS OF COMPANY: " << company[i].cmpaddress << endl;
